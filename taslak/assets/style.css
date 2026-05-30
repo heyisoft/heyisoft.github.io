@@ -147,8 +147,11 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: var(--space-2);
   gap: var(--space-5);
 }
+.brand { flex-shrink: 0; }
 .brand {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -386,8 +389,18 @@ main > *:nth-child(4) { animation-delay: 0.15s; }
   main { padding: var(--space-5) 0 var(--space-7); }
   .hero { padding: var(--space-6) 0 var(--space-5); }
   .doc-header { padding: var(--space-5) 0 var(--space-4); }
-  .site-nav { gap: var(--space-3); }
-  .site-nav a { font-size: 0.875rem; }
   .brand-tag { display: none; }
   .site-footer .container { flex-direction: column; align-items: flex-start; }
+
+  /* Header: brand stays on top, nav drops to its own full-width row so the
+     four links never clip on narrow phones. */
+  .site-header { padding: var(--space-3) 0; }
+  .site-header .container { gap: var(--space-2); }
+  .site-nav {
+    width: 100%;
+    gap: var(--space-4);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .site-nav a { font-size: 0.9rem; }
 }
