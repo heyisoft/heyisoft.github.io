@@ -1,6 +1,7 @@
-/* heyisoft.github.io — shared stylesheet
+/* Taslak — per-app stylesheet
  * Plain CSS, no preprocessor. Mobile-first.
- * Palette aligned with Taslak app (LinkedIn-blue primary).
+ * Palette aligned with the Taslak iOS/Android app (LinkedIn-blue primary).
+ * Scoped to /taslak/* only — root and other apps have their own styles.
  */
 
 /* ─── Reset ─── */
@@ -132,7 +133,6 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
 
 /* ─── Header ─── */
 .site-header {
-  background: var(--bg);
   border-bottom: 1px solid var(--border-subtle);
   padding: var(--space-4) 0;
   position: sticky;
@@ -161,13 +161,26 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
   gap: 0.5em;
 }
 .brand:hover { color: var(--accent); }
-.brand .dot {
+.brand .sparkle {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--accent);
+  flex-shrink: 0;
 }
+.brand-tag {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  color: var(--text-tertiary);
+  padding-left: var(--space-2);
+  border-left: 1px solid var(--border);
+  margin-left: var(--space-1);
+}
+.brand-tag a { color: inherit; text-decoration: none; }
+.brand-tag a:hover { color: var(--text-primary); }
+
 .site-nav { display: flex; gap: var(--space-5); align-items: center; }
 .site-nav a {
   color: var(--text-secondary);
@@ -201,7 +214,7 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
 .site-footer .footer-links { display: flex; gap: var(--space-5); flex-wrap: wrap; }
 
 /* ─── Hero (landing pages) ─── */
-.hero { padding: var(--space-8) 0 var(--space-7); text-align: left; }
+.hero { padding: var(--space-8) 0 var(--space-7); text-align: left; position: relative; }
 .hero .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -217,6 +230,7 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
   border-radius: var(--radius-pill);
   margin-bottom: var(--space-4);
 }
+.hero .eyebrow .sparkle { width: 14px; height: 14px; }
 .hero h1 { margin-bottom: var(--space-4); }
 .hero .lede {
   font-size: 1.125rem;
@@ -224,6 +238,22 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
   max-width: 60ch;
   line-height: 1.55;
   margin-bottom: var(--space-5);
+}
+
+/* ─── Score-ring decorative motif (Taslak signature) ─── */
+.score-orb {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: -1;
+}
+.score-orb svg { width: 100%; height: 100%; }
+@media (max-width: 720px) {
+  .score-orb { width: 120px; height: 120px; opacity: 0.35; top: 0; right: -20px; }
 }
 
 /* ─── Doc page header (privacy / terms) ─── */
@@ -242,54 +272,6 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
 }
 .doc-meta .meta-item { display: inline-flex; align-items: center; gap: 6px; }
 .doc-meta .label { font-weight: 600; color: var(--text-secondary); }
-
-/* ─── App tile grid (root landing) ─── */
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-5);
-  margin-top: var(--space-6);
-}
-.app-tile {
-  display: block;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  text-decoration: none !important;
-  color: inherit;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-.app-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
-}
-.app-tile h3 {
-  margin: 0 0 var(--space-2) 0;
-  font-size: 1.25rem;
-  color: var(--text-primary);
-}
-.app-tile p {
-  font-size: 0.95rem;
-  color: var(--text-tertiary);
-  margin-bottom: var(--space-4);
-}
-.app-tile .app-tile-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 0.925rem;
-}
-.app-tile .app-tile-cta::after {
-  content: "→";
-  transition: transform 0.18s ease;
-}
-.app-tile:hover .app-tile-cta::after {
-  transform: translateX(4px);
-}
 
 /* ─── Doc link list (taslak landing) ─── */
 .doc-links {
@@ -379,10 +361,16 @@ main { flex: 1 0 auto; padding: var(--space-7) 0 var(--space-9); }
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes orbSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
 main > * { animation: fadeUp 0.45s ease both; }
 main > *:nth-child(2) { animation-delay: 0.05s; }
 main > *:nth-child(3) { animation-delay: 0.1s; }
 main > *:nth-child(4) { animation-delay: 0.15s; }
+
+.score-orb svg { animation: orbSpin 60s linear infinite; transform-origin: 50% 50%; }
 
 /* ─── Reduce motion ─── */
 @media (prefers-reduced-motion: reduce) {
@@ -400,5 +388,6 @@ main > *:nth-child(4) { animation-delay: 0.15s; }
   .doc-header { padding: var(--space-5) 0 var(--space-4); }
   .site-nav { gap: var(--space-3); }
   .site-nav a { font-size: 0.875rem; }
+  .brand-tag { display: none; }
   .site-footer .container { flex-direction: column; align-items: flex-start; }
 }
