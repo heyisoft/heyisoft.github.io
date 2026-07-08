@@ -28,6 +28,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* dar ekranda kazara yatay taşmaya karşı emniyet */
 }
 
 /* Tüm site tek bir sütun genişliğinde hizalanır — logo, gövde metni ve alt
@@ -166,8 +167,10 @@ section > p { color: var(--text-mid); max-width: 620px; }
 .doc ul { margin: 12px 0 12px 22px; }
 .doc li { margin: 7px 0; }
 .doc strong, .doc em { color: var(--text-high); }
-.doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-.doc th, .doc td { text-align: left; padding: 10px 12px; border: 1px solid var(--hairline); color: var(--text-mid); vertical-align: top; }
+/* table-layout: fixed → sütunlar eşit bölünür ve metin sarar; böylece dar
+   ekranda tablo viewport'tan taşıp sayfayı yatay kaydırmaz. */
+.doc table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.doc th, .doc td { text-align: left; padding: 10px 12px; border: 1px solid var(--hairline); color: var(--text-mid); vertical-align: top; overflow-wrap: anywhere; }
 .doc th { color: var(--text-high); font-weight: 600; background: var(--surface); }
 .callout {
   background: var(--surface); border: 1px solid var(--gold-dim);
@@ -189,7 +192,15 @@ section > p { color: var(--text-mid); max-width: 620px; }
 .footer-links { display: flex; gap: 18px; }
 
 @media (max-width: 560px) {
-  .hero { padding: 56px 0 40px; }
-  .site-nav { gap: 14px; }
+  .container { padding: 0 20px; }
+  /* Dar ekranda başlık sade kalsın: "by heyisoft" etiketi gizlenir ve menü
+     sığmazsa alt satıra sarar — hiçbir öğe kesilmez. */
+  .site-header .container { flex-wrap: wrap; row-gap: 8px; }
+  .brand-tag { display: none; }
+  .site-nav { gap: 14px; flex-wrap: wrap; }
   .site-nav a { font-size: 13px; }
+  .hero { padding: 56px 0 40px; }
+  .doc h1 { font-size: 33px; }
+  .doc table { font-size: 13px; }
+  .doc th, .doc td { padding: 8px 9px; }
 }
