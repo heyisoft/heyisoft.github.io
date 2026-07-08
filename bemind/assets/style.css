@@ -30,8 +30,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-.container.wide { max-width: 860px; }
+/* Tüm site tek bir sütun genişliğinde hizalanır — logo, gövde metni ve alt
+   bilgi aynı sol/sağ kenarı paylaşır. Böylece başlık içerikten dışarı taşmaz. */
+.container { max-width: 820px; margin: 0 auto; padding: 0 28px; }
+.container.wide { max-width: 820px; }
 
 a { color: var(--gold); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -48,8 +50,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
-  max-width: 860px;
 }
+.brand-wrap { display: flex; align-items: center; gap: 10px; }
 .brand {
   font-family: var(--serif);
   font-size: 20px; font-weight: 500;
@@ -182,7 +184,6 @@ section > p { color: var(--text-mid); max-width: 620px; }
 }
 .site-footer .container {
   display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  max-width: 860px;
 }
 .site-footer a { color: var(--text-mid); }
 .footer-links { display: flex; gap: 18px; }

@@ -14,10 +14,13 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="/bemind/">
-        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
-        Be Mind <span class="brand-tag"><a href="/">by heyisoft</a></span>
-      </a>
+      <div class="brand-wrap">
+        <a class="brand" href="/bemind/">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+          Be Mind
+        </a>
+        <span class="brand-tag"><a href="/">by heyisoft</a></span>
+      </div>
       <nav class="site-nav">
         <a href="/bemind/">Be Mind</a>
         <a href="/bemind/privacy/" class="active">Privacy</a>
@@ -29,14 +32,15 @@
 
   <main>
     <div class="container doc">
-      <p class="updated">Last updated: 7 July 2026</p>
+      <p class="updated">Last updated: 9 July 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="callout">
         <span class="star-inline">✦</span> The short version: Be Mind has <strong>no accounts</strong>.
         Your reading history lives <strong>on your device</strong>. The only data that leaves your phone
-        is what is needed to compose your AI reading (your question, the drawn cards and your language)
-        and the standard advertising/purchase infrastructure of the free tier.
+        is what is needed to compose your AI reading (your question, the drawn cards and your language),
+        anonymous usage analytics, and the standard advertising and subscription infrastructure of a
+        modern app — all handled by trusted providers such as Google and Apple.
       </div>
 
       <h2>1. Who we are</h2>
@@ -62,7 +66,7 @@
         </tr>
         <tr>
           <td>Reading request (question text, drawn card IDs and orientations, spread key, app language)</td>
-          <td>Sent to our AI service at the moment you request a reading</td>
+          <td>Sent to Google's Firebase AI Logic (Gemini model) when you request a reading</td>
           <td>Composing your AI interpretation; processed transiently to generate the response</td>
         </tr>
         <tr>
@@ -76,14 +80,24 @@
           <td>Calculating your birth-date arcana locally</td>
         </tr>
         <tr>
+          <td>Usage &amp; diagnostics (in-app events, screens viewed, device model, OS version, language, app version, coarse region)</td>
+          <td>Processed by Google Firebase Analytics</td>
+          <td>Understanding which features are used, in aggregate, so we can improve the app</td>
+        </tr>
+        <tr>
+          <td>App-integrity token (short-lived attestation)</td>
+          <td>Apple App Attest / Google Play Integrity, verified via Firebase App Check</td>
+          <td>Confirming requests come from the genuine app and preventing abuse of the AI service</td>
+        </tr>
+        <tr>
           <td>Advertising identifiers and ad interaction data (free tier)</td>
           <td>Processed by Google AdMob</td>
           <td>Showing the optional rewarded ads that unlock readings on the free tier</td>
         </tr>
         <tr>
-          <td>Purchase records (Pro subscription)</td>
-          <td>Processed by Apple App Store / Google Play</td>
-          <td>Managing your subscription; we never see your payment details</td>
+          <td>Purchase &amp; subscription records (Pro)</td>
+          <td>Processed by Apple App Store / Google Play and our subscription manager RevenueCat</td>
+          <td>Managing and restoring your Pro subscription; we never see your payment details</td>
         </tr>
       </table>
 
@@ -99,14 +113,32 @@
       <p>
         When you request a reading, your question (if you wrote one), the identities and
         orientations of the cards you drew, the spread you chose and your app language are
-        sent to our reading service, which uses a large-language-model provider to compose
-        the interpretation. This content is used <strong>only</strong> to generate your reading.
-        We do not use it to build advertising profiles, and we do not sell it.
+        sent to <strong>Google's Firebase AI Logic</strong> service, which uses a
+        <strong>Gemini</strong> large-language model to compose the interpretation. This content is
+        used <strong>only</strong> to generate your reading. We do not use it to build advertising
+        profiles, and we do not sell it. Google processes it as our service provider under the
+        <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase Data Processing Terms</a>.
         Avoid including sensitive personal details in your questions; the question field is free text
         and whatever you type will be processed to produce the reading.
       </p>
 
-      <h2>6. Advertising (free tier)</h2>
+      <h2>6. Analytics and app integrity</h2>
+      <p>
+        To keep improving Be Mind we use <strong>Google Firebase Analytics</strong>, which records
+        anonymous usage events (for example which spreads are opened) together with basic technical
+        data such as device model, operating-system version and app version. It is used
+        <strong>in aggregate</strong> to understand how the app is used; it is not tied to your name
+        or an account (there is none) and it is never sold.
+      </p>
+      <p>
+        To protect the reading service from abuse, the app also uses <strong>Firebase App Check</strong>,
+        which obtains a short-lived attestation token from Apple App Attest or Google Play Integrity
+        to confirm that a request comes from the genuine, untampered app. App Check does not read the
+        content of your readings. Both services are covered by
+        <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.
+      </p>
+
+      <h2>7. Advertising (free tier)</h2>
       <p>
         The free tier unlocks readings by showing rewarded video ads served by
         <strong>Google AdMob</strong>. AdMob may process your device's advertising identifier and
@@ -116,28 +148,39 @@
         App Tracking Transparency prompt applies. Pro subscribers see no ads.
       </p>
 
-      <h2>7. Notifications</h2>
+      <h2>8. Subscriptions and purchases</h2>
+      <p>
+        Be Mind Pro is an auto-renewing subscription sold through the <strong>Apple App Store</strong>
+        and <strong>Google Play</strong>; the stores handle the payment and we never see your card
+        details. We use <strong>RevenueCat</strong> as our subscription manager to validate purchase
+        receipts and keep your Pro status in sync across your devices. For this, RevenueCat processes
+        your store transaction data and an anonymous, app-generated identifier under its own
+        <a href="https://www.revenuecat.com/privacy" rel="noopener">Privacy Policy</a>. You can manage
+        or cancel the subscription anytime in your App Store or Google Play settings.
+      </p>
+
+      <h2>9. Notifications</h2>
       <p>
         The optional daily reminder is a <strong>local notification</strong> scheduled on your device.
         Nothing is sent to a server, and you can turn it off anytime in the app's settings
         or in system settings.
       </p>
 
-      <h2>8. Legal bases (GDPR / KVKK)</h2>
+      <h2>10. Legal bases (GDPR / KVKK)</h2>
       <ul>
-        <li><strong>Performance of contract</strong> — processing your reading request to deliver the service you asked for.</li>
+        <li><strong>Performance of contract</strong> — processing your reading request and managing your subscription to deliver the service you asked for.</li>
         <li><strong>Consent</strong> — personalized advertising (where applicable) and notifications.</li>
-        <li><strong>Legitimate interests</strong> — securing and operating the service, preventing abuse of the free tier.</li>
+        <li><strong>Legitimate interests</strong> — securing and operating the service, anonymous analytics to improve the app, and app-integrity checks that prevent abuse of the free tier and the AI service.</li>
       </ul>
 
-      <h2>9. Retention</h2>
+      <h2>11. Retention</h2>
       <ul>
         <li>Reading history stays on your device until you delete it ("Delete all data" in Settings) or uninstall the app.</li>
-        <li>Reading requests are processed transiently to generate the response and are subject to the short operational logging of our infrastructure and the LLM provider.</li>
-        <li>Ad and purchase records are retained by Google/Apple under their own policies.</li>
+        <li>Reading requests are processed transiently to generate the response and are subject to the short operational logging of our infrastructure and Google's AI service.</li>
+        <li>Analytics data is retained by Google under its own retention settings; advertising, purchase and subscription records are retained by Google, Apple and RevenueCat under their own policies.</li>
       </ul>
 
-      <h2>10. Your rights</h2>
+      <h2>12. Your rights</h2>
       <p>
         Depending on your jurisdiction (including GDPR and Turkish KVKK), you may have rights to
         access, correct, delete or object to the processing of your personal data. Because almost
@@ -146,20 +189,20 @@
         <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a> and we will respond within 30 days.
       </p>
 
-      <h2>11. Children</h2>
+      <h2>13. Children</h2>
       <p>
         Be Mind is not directed at children and is intended for users aged 16 and over.
         We do not knowingly process children's data.
       </p>
 
-      <h2>12. Changes</h2>
+      <h2>14. Changes</h2>
       <p>
         We may update this policy as the app evolves. Material changes will be reflected on this
         page with a new "last updated" date. Continuing to use the app after a change means you
         accept the updated policy.
       </p>
 
-      <h2>13. Contact</h2>
+      <h2>15. Contact</h2>
       <p>
         heyisoft · <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a> ·
         <a href="/bemind/contact/">Contact &amp; Support</a>
