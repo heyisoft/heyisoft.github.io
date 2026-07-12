@@ -1,17 +1,17 @@
 /* Love Tarot Reading — mystic love web adaptation
    deep-plum canvas · blush parchment text · rose-gold accent */
 :root {
-  --canvas: #160D12;
-  --surface: #241820;
-  --surface-hi: #33232E;
+  --canvas: #180912;
+  --surface: #26141F;
+  --surface-hi: #37212F;
   --hairline: rgba(255, 255, 255, 0.09);
   --hairline-hi: rgba(255, 255, 255, 0.17);
-  --text-high: #F3E6E4;
+  --text-high: #F6E7EA;
   --text-mid: rgba(243, 230, 228, 0.66);
   --text-low: rgba(243, 230, 228, 0.40);
-  --gold: #E0A48C;
+  --gold: #EBA2A6;
   --gold-dim: rgba(224, 164, 140, 0.28);
-  --ink: #1E1017;
+  --ink: #201018;
   --serif: "Fraunces", Georgia, serif;
   --sans: "Onest", -apple-system, sans-serif;
   --reading: "Newsreader", Georgia, serif;
@@ -45,7 +45,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   padding: 18px 0;
   position: sticky;
   top: 0;
-  background: rgba(22, 13, 18, 0.86);
+  background: rgba(24, 9, 18, 0.86);
   backdrop-filter: blur(12px);
   z-index: 10;
 }
@@ -71,7 +71,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .hero { text-align: center; padding: 84px 0 56px; position: relative; }
 .hero::before {
   content: ""; position: absolute; inset: -40px 0 auto 0; height: 380px;
-  background: radial-gradient(circle at 50% 30%, rgba(224,164,140,0.14), transparent 62%);
+  background: radial-gradient(circle at 50% 30%, rgba(235,162,166,0.14), transparent 62%);
   pointer-events: none;
 }
 .eyebrow {
@@ -98,7 +98,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   border: 1px solid var(--hairline-hi); border-radius: 13px;
   background: var(--surface);
   display: grid; place-items: center; position: relative;
-  box-shadow: 0 18px 40px rgba(5, 4, 10, 0.6), 0 4px 18px rgba(224,164,140,0.16);
+  box-shadow: 0 18px 40px rgba(5, 4, 10, 0.6), 0 4px 18px rgba(235,162,166,0.16);
   animation: breathe 4.2s ease-in-out infinite;
 }
 .card-motif::before {
