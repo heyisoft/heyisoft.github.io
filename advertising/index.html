@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advertising &amp; Google Ads API use — heyisoft</title>
+  <meta name="description" content="How heyisoft advertises its own apps and how our internal tool uses the Google Ads API to report on and manage our own campaigns." />
+  <meta name="theme-color" content="#0E0C0A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/heyisoft.css" />
+  <style>
+    /* Page-scoped: editorial prose layout for the advertising page */
+    .page-hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(1.5rem, 4vw, 3rem); animation: liftIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .page-hero .kicker { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.75rem; }
+    .page-hero .kicker::before { content: ""; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
+    .page-hero h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.02; max-width: 22ch; margin-bottom: 1.25rem; }
+    .page-hero .lede { font-size: clamp(1rem, 1.4vw, 1.125rem); color: var(--ink-muted); max-width: 58ch; }
+    .prose-section { padding: clamp(1.75rem, 4vw, 2.75rem) 0; border-top: 1px solid var(--rule-soft); animation: liftIn 0.65s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .prose-section h2 { font-size: clamp(1.375rem, 2.4vw, 1.75rem); margin-bottom: 0.875rem; }
+    .prose-section p { max-width: 62ch; }
+    .prose-section ul { margin: 0 0 1rem; padding: 0; max-width: 62ch; }
+    .prose-section ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.625rem; color: var(--ink-muted); }
+    .prose-section ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+    .fact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin: 1.5rem 0 0.5rem; }
+    .fact-grid .fact { background: var(--paper-soft); padding: 1.25rem 1.25rem 1.375rem; }
+    .fact-grid .fact .k { font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+    .fact-grid .fact .v { color: var(--ink); font-size: 0.9375rem; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">hey<span class="ampersand">·</span>isoft</a>
+      <nav class="site-nav">
+        <span class="marker">●</span> İstanbul
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container prose">
+
+      <section class="page-hero">
+        <span class="kicker">Advertising Operations</span>
+        <h1>How we advertise — and how we use the <em>Google Ads API</em>.</h1>
+        <p class="lede">
+          heyisoft promotes its own mobile apps through Google Ads campaigns run
+          from our own Google Ads accounts. This page describes the internal tool
+          we built on the Google Ads API to keep those campaigns measured and
+          well managed.
+        </p>
+      </section>
+
+      <section class="prose-section">
+        <h2>Why we use the Google Ads API</h2>
+        <p>
+          We are an independent studio publishing apps such as
+          <a href="/taslak/">Taslak</a>, <a href="/bemind/">Be Mind</a> and
+          <a href="/love-tarot-reading/">Love Tarot Reading</a>. User acquisition
+          for these apps runs on Google Ads (primarily App campaigns). To review
+          performance without living in spreadsheets, we built a small
+          <strong>internal reporting and management tool</strong> that talks to
+          the Google Ads API directly.
+        </p>
+      </section>
+
+      <section class="prose-section">
+        <h2>What the tool does</h2>
+        <ul>
+          <li>Lists campaigns, ad groups and budgets across our own accounts.</li>
+          <li>Pulls performance reports — impressions, clicks, cost, installs and conversions — for daily and weekly review.</li>
+          <li>Adjusts budgets and pauses or re-enables our own campaigns based on those reviews.</li>
+          <li>Summarises results so we can decide where the next campaign for our apps should go.</li>
+        </ul>
+      </section>
+
+      <section class="prose-section">
+        <h2>Scope &amp; access</h2>
+        <p>
+          The tool is <strong>internal-use only</strong>. It is not sold,
+          distributed, licensed or offered as a service to anyone else, and it
+          never touches third-party accounts or data.
+        </p>
+        <div class="fact-grid">
+          <div class="fact"><span class="k">Who uses it</span><span class="v">One person — the studio's founder.</span></div>
+          <div class="fact"><span class="k">Which accounts</span><span class="v">Only our own manager account and its client account.</span></div>
+          <div class="fact"><span class="k">Data handling</span><span class="v">Reporting data is viewed, not stored long-term; nothing is shared externally.</span></div>
+          <div class="fact"><span class="k">Request volume</span><span class="v">Low — a handful of read-mostly queries per day.</span></div>
+        </div>
+      </section>
+
+      <section class="prose-section">
+        <h2>Contact</h2>
+        <p>
+          Questions about our advertising or API usage:
+          <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a>.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year">2026</span> heyisoft</div>
+      <div><a href="/advertising/">Advertising</a> · <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
