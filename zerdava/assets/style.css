@@ -1,0 +1,83 @@
+/* Zerdava — uygulamanin kagit tonu. Be Mind'in koyu tarot temasindan bilerek
+   ayri: urun sicak, ev ici, hayvan dostu. Renkler AppColors ile ayni. */
+:root{
+  --paper:#FBF3E8; --paper-2:#F5E9D9; --surface:#FFFDF9;
+  --ink:#3A2A26; --ink-soft:#8C7365; --hair:#E8DAC7;
+  --rose:#A8506F; --rose-soft:#F6E4EA; --moss:#5E8C6A; --moss-soft:#E6F0E7;
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#191214; --paper-2:#211719; --surface:#241A1C;
+         --ink:#F3E6DC; --ink-soft:#B39C90; --hair:#3A2A2E;
+         --rose:#E39BB4; --rose-soft:#3A222B; --moss:#9CC7A6; --moss-soft:#25332A; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  font-size:17px; line-height:1.68; letter-spacing:.005em;
+}
+/* kagit dokusu: cok soluk pati izi ritmi */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image:radial-gradient(circle at 12% 20%, var(--paper-2) 0 2px, transparent 3px),
+                   radial-gradient(circle at 68% 62%, var(--paper-2) 0 2px, transparent 3px),
+                   radial-gradient(circle at 88% 12%, var(--paper-2) 0 2px, transparent 3px);
+  background-size:340px 340px;
+}
+.container{width:min(760px,calc(100% - 2.5rem)); margin-inline:auto; position:relative; z-index:1}
+.container.wide{width:min(940px,calc(100% - 2.5rem))}
+
+.site-header{border-bottom:1px solid var(--hair); background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:10}
+.site-header .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center;
+  justify-content:space-between; padding:.85rem 0}
+.brand-wrap{display:flex; align-items:baseline; gap:.6rem}
+.brand{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--ink);
+  font-family:Fraunces,Georgia,serif; font-weight:600; font-size:1.28rem; letter-spacing:-.01em}
+.brand .paw{width:22px;height:22px;color:var(--rose)}
+.brand-tag a{color:var(--ink-soft); text-decoration:none; font-size:.82rem}
+.brand-tag a:hover{color:var(--rose)}
+.site-nav{display:flex; gap:1.1rem; flex-wrap:wrap}
+.site-nav a{color:var(--ink-soft); text-decoration:none; font-size:.94rem; padding-bottom:2px}
+.site-nav a:hover{color:var(--rose)}
+.site-nav a.active{color:var(--ink); font-weight:600; border-bottom:2px solid var(--rose)}
+
+main{padding:2.6rem 0 3.2rem}
+.doc h1{font-family:Fraunces,Georgia,serif; font-size:clamp(2rem,5vw,2.7rem); line-height:1.12;
+  margin:.2rem 0 1.4rem; letter-spacing:-.02em}
+.doc h2{font-family:Fraunces,Georgia,serif; font-size:1.24rem; margin:2.3rem 0 .6rem; letter-spacing:-.01em}
+.doc p,.doc li{color:var(--ink)}
+.doc a{color:var(--rose)}
+.updated{color:var(--ink-soft); font-size:.88rem; margin:0 0 .4rem; text-transform:uppercase;
+  letter-spacing:.08em; font-size:.74rem}
+.callout{background:var(--rose-soft); border:1px solid color-mix(in srgb,var(--rose) 22%,transparent);
+  border-radius:var(--radius); padding:1.1rem 1.25rem; margin:1.4rem 0 .4rem}
+.callout.moss{background:var(--moss-soft); border-color:color-mix(in srgb,var(--moss) 26%,transparent)}
+.paw-inline{color:var(--rose); font-weight:700}
+table{width:100%; border-collapse:collapse; margin:.9rem 0 .3rem; font-size:.94rem; display:block; overflow-x:auto}
+th,td{text-align:left; padding:.62rem .7rem; border-bottom:1px solid var(--hair); vertical-align:top}
+th{color:var(--ink-soft); font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em}
+ul{padding-left:1.15rem} li{margin:.3rem 0}
+code{background:var(--paper-2); padding:.1rem .38rem; border-radius:6px; font-size:.9em}
+
+/* landing */
+.hero{padding:2.2rem 0 1.4rem; text-align:center}
+.hero .mark{width:76px;height:76px;margin:0 auto 1.1rem;border-radius:50%;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--rose) 82%,#fff),var(--rose));
+  display:grid;place-items:center;box-shadow:0 12px 30px -12px var(--rose)}
+.hero .mark svg{width:38px;height:38px;color:#fff}
+.hero h1{font-family:Fraunces,Georgia,serif; font-size:clamp(2.2rem,6vw,3.2rem); line-height:1.08;
+  margin:.2rem 0 .7rem; letter-spacing:-.025em}
+.hero p.lede{color:var(--ink-soft); font-size:1.08rem; max-width:52ch; margin:0 auto}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; margin:2.4rem 0 1rem}
+.tile{background:var(--surface); border:1px solid var(--hair); border-radius:var(--radius); padding:1.15rem 1.25rem}
+.tile h3{font-family:Fraunces,Georgia,serif; font-size:1.04rem; margin:.1rem 0 .35rem}
+.tile p{margin:0; color:var(--ink-soft); font-size:.95rem}
+
+.site-footer{border-top:1px solid var(--hair); padding:1.5rem 0; color:var(--ink-soft); font-size:.88rem}
+.site-footer .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; justify-content:space-between}
+.footer-links{display:flex; gap:1.1rem}
+.footer-links a{color:var(--ink-soft); text-decoration:none}
+.footer-links a:hover{color:var(--rose)}
