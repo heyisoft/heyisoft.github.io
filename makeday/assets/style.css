@@ -1,0 +1,83 @@
+/* MakeDay — gunun kendi kagidi. Zerdava'nin sicak kagidindan bilerek ayri:
+   urun sakin, olculu, gunluk. Renkler uygulamanin AccentColor'i ile ayni. */
+:root{
+  --paper:#F4F7F5; --paper-2:#E9F0EC; --surface:#FFFFFF;
+  --ink:#15211E; --ink-soft:#5C726B; --hair:#DCE7E1;
+  --teal:#0E7C86; --teal-soft:#E1F1F1; --leaf:#3F9A78; --leaf-soft:#E7F4EC;
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#0E1513; --paper-2:#151E1B; --surface:#18211E;
+         --ink:#E9F1ED; --ink-soft:#9AB0A8; --hair:#243130;
+         --teal:#4FD1C5; --teal-soft:#10302F; --leaf:#8FD3AE; --leaf-soft:#16302A; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Figtree,system-ui,-apple-system,sans-serif;
+  font-size:17px; line-height:1.68; letter-spacing:.004em;
+}
+/* kagit dokusu: bir takvimin cok soluk satir ritmi */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.55;
+  background-image:linear-gradient(var(--paper-2) 1px, transparent 1px);
+  background-size:100% 46px;
+  mask-image:linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+.container{width:min(760px,calc(100% - 2.5rem)); margin-inline:auto; position:relative; z-index:1}
+.container.wide{width:min(940px,calc(100% - 2.5rem))}
+
+.site-header{border-bottom:1px solid var(--hair); background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:10}
+.site-header .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center;
+  justify-content:space-between; padding:.85rem 0}
+.brand-wrap{display:flex; align-items:baseline; gap:.6rem}
+.brand{display:inline-flex; align-items:center; gap:.55rem; text-decoration:none; color:var(--ink);
+  font-family:Newsreader,Georgia,serif; font-weight:600; font-size:1.3rem; letter-spacing:-.015em}
+.brand .wave{width:30px;height:auto}
+.brand-tag a{color:var(--ink-soft); text-decoration:none; font-size:.82rem}
+.brand-tag a:hover{color:var(--teal)}
+.site-nav{display:flex; gap:1.1rem; flex-wrap:wrap}
+.site-nav a{color:var(--ink-soft); text-decoration:none; font-size:.94rem; padding-bottom:2px}
+.site-nav a:hover{color:var(--teal)}
+.site-nav a.active{color:var(--ink); font-weight:600; border-bottom:2px solid var(--teal)}
+
+main{padding:2.6rem 0 3.2rem}
+.doc h1{font-family:Newsreader,Georgia,serif; font-size:clamp(2rem,5vw,2.7rem); line-height:1.12;
+  margin:.2rem 0 1.4rem; letter-spacing:-.02em}
+.doc h2{font-family:Newsreader,Georgia,serif; font-size:1.26rem; margin:2.3rem 0 .6rem; letter-spacing:-.01em}
+.doc p,.doc li{color:var(--ink)}
+.doc a{color:var(--teal)}
+.updated{color:var(--ink-soft); margin:0 0 .4rem; text-transform:uppercase;
+  letter-spacing:.08em; font-size:.74rem}
+.callout{background:var(--teal-soft); border:1px solid color-mix(in srgb,var(--teal) 24%,transparent);
+  border-radius:var(--radius); padding:1.1rem 1.25rem; margin:1.4rem 0 .4rem}
+.callout.leaf{background:var(--leaf-soft); border-color:color-mix(in srgb,var(--leaf) 28%,transparent)}
+.dot-inline{color:var(--teal); font-weight:700}
+table{width:100%; border-collapse:collapse; margin:.9rem 0 .3rem; font-size:.94rem; display:block; overflow-x:auto}
+th,td{text-align:left; padding:.62rem .7rem; border-bottom:1px solid var(--hair); vertical-align:top}
+th{color:var(--ink-soft); font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em}
+ul{padding-left:1.15rem} li{margin:.3rem 0}
+code{background:var(--paper-2); padding:.1rem .38rem; border-radius:6px; font-size:.9em}
+
+/* landing */
+.hero{padding:2.2rem 0 1.4rem; text-align:center}
+.hero .mark{width:132px;margin:0 auto 1.1rem;display:block}
+.hero h1{font-family:Newsreader,Georgia,serif; font-size:clamp(2.2rem,6vw,3.2rem); line-height:1.08;
+  margin:.2rem 0 .7rem; letter-spacing:-.025em}
+.hero p.lede{color:var(--ink-soft); font-size:1.08rem; max-width:54ch; margin:0 auto}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; margin:2.4rem 0 1rem}
+.tile{background:var(--surface); border:1px solid var(--hair); border-radius:var(--radius); padding:1.15rem 1.25rem}
+.tile h3{font-family:Newsreader,Georgia,serif; font-size:1.06rem; margin:.1rem 0 .35rem}
+.tile p{margin:0; color:var(--ink-soft); font-size:.95rem}
+.price-row{display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin:.9rem 0 .2rem}
+.price{background:var(--surface); border:1px solid var(--hair); border-radius:999px;
+  padding:.42rem 1rem; font-size:.94rem; color:var(--ink-soft)}
+.price strong{color:var(--ink)}
+
+.site-footer{border-top:1px solid var(--hair); padding:1.5rem 0; color:var(--ink-soft); font-size:.88rem}
+.site-footer .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; justify-content:space-between}
+.footer-links{display:flex; gap:1.1rem}
+.footer-links a{color:var(--ink-soft); text-decoration:none}
+.footer-links a:hover{color:var(--teal)}
