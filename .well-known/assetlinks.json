@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.heyisoft.avare",
+      "sha256_cert_fingerprints": [
+        "1D:0F:CB:B7:79:70:FC:08:A9:72:EF:19:10:DF:89:62:46:35:0C:69:A6:85:1D:9F:5F:96:C6:A2:B9:E4:11:C9"
+      ]
+    }
+  }
+]

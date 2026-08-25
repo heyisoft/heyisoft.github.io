@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avare — Geziye katıl</title>
+  <meta name="description" content="Bir Avare gezisine davet edildin. Uygulamayı indir ve davet kodunla katıl." />
+  <meta name="theme-color" content="#FBF9F4" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --canvas:#FBF9F4; --surface:#FFFFFF; --ink:#0F1419; --ink-2:#4A5058;
+      --muted:#8A8F98; --accent:#E87A5D; --accent-soft:#FDEDE7; --line:#E7E2D8;
+      --shadow:0 1px 2px rgba(15,20,25,.06), 0 8px 24px rgba(15,20,25,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --canvas:#08090A; --surface:#141618; --ink:#F2F4F6; --ink-2:#B9BFC7;
+        --muted:#7E858E; --accent:#F2957A; --accent-soft:#241A17; --line:#24282C;
+        --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.4);
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; padding:32px 20px 56px; background:var(--canvas); color:var(--ink);
+      font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      -webkit-font-smoothing:antialiased; display:flex; justify-content:center;
+    }
+    .wrap{width:100%; max-width:420px}
+    .brand{
+      display:flex; align-items:center; gap:9px; justify-content:center;
+      font-weight:700; letter-spacing:.02em; color:var(--ink-2);
+      font-size:15px; margin-bottom:36px; text-decoration:none;
+    }
+    .brand svg{width:20px;height:20px;color:var(--accent)}
+    h1{
+      font-family:Fraunces,Georgia,serif; font-weight:600; font-size:30px;
+      line-height:1.2; margin:0 0 10px; text-align:center; letter-spacing:-.01em;
+    }
+    .lede{margin:0 0 30px; text-align:center; color:var(--ink-2); font-size:16px; line-height:1.55}
+    .card{
+      background:var(--surface); border:1px solid var(--line); border-radius:22px;
+      padding:26px 22px; box-shadow:var(--shadow); text-align:center;
+    }
+    .eyebrow{
+      font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--muted); margin:0 0 12px;
+    }
+    .code{
+      font-size:38px; font-weight:700; letter-spacing:.22em; margin:0;
+      font-variant-numeric:tabular-nums; word-break:break-all; line-height:1.15;
+    }
+    .copy{
+      margin-top:16px; width:100%; border:0; cursor:pointer; border-radius:14px;
+      background:var(--accent); color:#fff; font:600 15px/1 'Hanken Grotesk',sans-serif;
+      padding:15px 18px; font-family:inherit; transition:transform .12s ease, opacity .12s ease;
+    }
+    .copy:active{transform:scale(.985)}
+    .copy.done{background:var(--accent-soft); color:var(--accent)}
+    .steps{margin:30px 0 0; padding:0; list-style:none; counter-reset:s}
+    .steps li{
+      counter-increment:s; position:relative; padding:0 0 0 40px; margin-bottom:18px;
+      color:var(--ink-2); font-size:15px; line-height:1.5;
+    }
+    .steps li::before{
+      content:counter(s); position:absolute; left:0; top:-1px;
+      width:26px; height:26px; border-radius:50%; background:var(--accent-soft);
+      color:var(--accent); font-size:13px; font-weight:700;
+      display:grid; place-items:center;
+    }
+    .steps b{color:var(--ink); font-weight:600}
+    .stores{display:flex; flex-direction:column; gap:10px; margin-top:26px}
+    .store{
+      display:flex; align-items:center; justify-content:center; gap:9px;
+      padding:15px 18px; border-radius:14px; border:1px solid var(--line);
+      background:var(--surface); color:var(--ink); text-decoration:none;
+      font-weight:600; font-size:15px;
+    }
+    .store svg{width:18px;height:18px}
+    .note{margin-top:26px; text-align:center; color:var(--muted); font-size:13px; line-height:1.5}
+    .note a{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+      Avare
+    </a>
+
+    <h1 id="title">Bir geziye davet edildin</h1>
+    <p class="lede" id="lede">Avare, gezini arkadaşlarınla birlikte planladığın uygulama. Rota, valiz ve harcamalar herkeste aynı.</p>
+
+    <div class="card" id="codeCard" hidden>
+      <p class="eyebrow">Davet kodun</p>
+      <p class="code" id="code"></p>
+      <button class="copy" id="copy" type="button">Kodu kopyala</button>
+    </div>
+
+    <ol class="steps">
+      <li><b>Avare'yi indir</b> — aşağıdaki bağlantıdan.</li>
+      <li><b>Uygulamayı aç</b> ve ana ekrandaki <b>Katıl</b> kartına dokun.</li>
+      <li id="step3"><b>Kodu gir</b> — gezi hemen listende belirir.</li>
+    </ol>
+
+    <div class="stores">
+      <a class="store" id="play" href="https://play.google.com/store/apps/details?id=com.heyisoft.avare">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3zm10.7 8.1 2.6-2.7-9.4-5.3 6.8 8zM4.6 21.6l9.4-5.3-2.6-2.7-6.8 8zm12.8-7.2 2.9-1.6a1 1 0 0 0 0-1.7l-2.9-1.6-2.8 2.9 2.8 2.9z"/></svg>
+        Google Play'den indir
+      </a>
+      <a class="store" id="appstore" hidden>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.6 2.3 2.8 2.2 1.1 0 1.6-.7 2.9-.7s1.7.7 2.9.7c1.2 0 2-1.1 2.7-2.2.9-1.2 1.2-2.4 1.2-2.5 0 0-2.3-.9-2.3-3.6zM14.2 5.4c.6-.7 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.6-1.1 1.7-.9 2.7 1 .1 2-.6 2.6-1.3z"/></svg>
+        App Store'dan indir
+      </a>
+    </div>
+
+    <p class="note">Kodun süresi sınırlıdır. Sorun olursa seni davet eden kişiden yeni bir kod istemesini rica et. · <a href="/">heyisoft</a></p>
+  </div>
+
+  <script>
+    // App Store numarası atandığında buraya yaz; boşken düğme hiç çizilmez
+    // (çalışmayan bir mağaza bağlantısı göstermektense hiç göstermemek yeğ).
+    var IOS_APP_ID = "";
+
+    (function () {
+      var code = (new URLSearchParams(location.search).get("code") || "")
+        .toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 5);
+
+      if (code) {
+        document.getElementById("code").textContent = code.split("").join(" ");
+        document.getElementById("codeCard").hidden = false;
+      } else {
+        // Kodsuz gelindiğinde yalan söyleme: "davet edildin" deme.
+        document.getElementById("title").textContent = "Avare'ye katıl";
+        document.getElementById("lede").textContent =
+          "Gezini arkadaşlarınla birlikte planla. Rota, valiz ve harcamalar herkeste aynı.";
+        document.getElementById("step3").innerHTML =
+          "<b>Davet kodunu gir</b> — kodu, geziyi oluşturan arkadaşın gönderir.";
+      }
+
+      if (IOS_APP_ID) {
+        var a = document.getElementById("appstore");
+        a.href = "https://apps.apple.com/app/id" + IOS_APP_ID;
+        a.hidden = false;
+      }
+
+      var btn = document.getElementById("copy");
+      if (btn) {
+        btn.addEventListener("click", function () {
+          var done = function () {
+            btn.textContent = "Kopyalandı ✓";
+            btn.classList.add("done");
+            setTimeout(function () {
+              btn.textContent = "Kodu kopyala";
+              btn.classList.remove("done");
+            }, 2000);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(done, function () {});
+          } else {
+            // Eski iOS Safari: seçim üzerinden kopyalama.
+            var t = document.createElement("textarea");
+            t.value = code; document.body.appendChild(t); t.select();
+            try { document.execCommand("copy"); done(); } catch (e) {}
+            document.body.removeChild(t);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

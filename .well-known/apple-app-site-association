@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["MTN6ZG2P72.com.heyisoft.avare"],
+        "components": [
+          {
+            "/": "/avare/join*",
+            "comment": "Avare davet linki — kurulu uygulamayı katılma ekranında açar"
+          }
+        ]
+      }
+    ]
+  }
+}
