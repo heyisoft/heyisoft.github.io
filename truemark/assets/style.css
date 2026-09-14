@@ -1,0 +1,101 @@
+/* Truemark — aletin kendi dili: mürekkep band, kâğıt zemin, turuncu YALNIZ
+   işaret. Uygulamanın jetonlarıyla aynı renkler (TmColors). Sarman'ın sıcak
+   kâğıdından bilerek ayrı: bu bir saha aleti, ev içi bir oyuncak değil. */
+:root{
+  --paper:#F4F1EA; --paper-2:#EAE6DC; --surface:#FFFFFF;
+  --ink:#1A1916; --ink-soft:#6E6A61; --hair:#DCD7CC;
+  --mark:#E4571C; --metal:#9A968C;
+  /* Band HER ZAMAN mürekkeptir. Uygulamada da öyle: okuma bandı açık
+     temada koyu, koyu temada DAHA koyu — asla açık. Bu yüzden kendi
+     jetonları var ve tema ile dönmezler. */
+  --band:#1A1916; --band-fg:#F3EFE6; --band-fg-soft:#B9B3A6;
+  --band-tag:#8C877C;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#141412; --paper-2:#1F1E1B; --surface:#1A1916;
+         --ink:#F3EFE6; --ink-soft:#A5A096; --hair:#333129;
+         --mark:#F0662A; --metal:#7C776D;
+         --band:#0B0B0A; --band-fg:#F3EFE6; --band-fg-soft:#A5A096;
+         --band-tag:#7C776D; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px; line-height:1.66;
+}
+.container{width:min(760px,calc(100% - 2.5rem)); margin-inline:auto}
+.container.wide{width:min(940px,calc(100% - 2.5rem))}
+
+/* Üst band: uygulamadaki okuma bandının aynısı — ters blok, altında cetvel. */
+.site-header{background:var(--band); color:var(--band-fg); position:relative}
+.site-header::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:9px;
+  background:
+    repeating-linear-gradient(to right,
+      var(--band-fg) 0 2px, transparent 2px 14px);
+}
+.site-header .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem;
+  align-items:center; justify-content:space-between; padding:.9rem 0 1.1rem}
+.brand-wrap{display:flex; align-items:baseline; gap:.6rem}
+.brand{display:inline-flex; align-items:center; gap:.55rem; text-decoration:none;
+  color:var(--band-fg); font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-weight:700; font-size:1.3rem; letter-spacing:-.01em}
+.brand svg{width:34px;height:21px;overflow:visible}
+.brand-tag a{color:var(--band-tag); text-decoration:none; font-size:.82rem}
+.brand-tag a:hover{color:var(--mark)}
+.site-nav{display:flex; gap:1.1rem; flex-wrap:wrap}
+.site-nav a{color:var(--band-fg-soft); text-decoration:none; font-size:.94rem;
+  font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  text-transform:uppercase; letter-spacing:.08em}
+.site-nav a:hover{color:var(--band-fg)}
+.site-nav a.active{color:var(--band-fg); border-bottom:2px solid var(--mark)}
+
+main{padding:2.6rem 0 3.2rem}
+.doc h1{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:clamp(2rem,5vw,2.7rem); line-height:1.1; font-weight:700;
+  margin:.2rem 0 1.4rem; letter-spacing:-.02em}
+.doc h2{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:1.2rem; font-weight:700; margin:2.3rem 0 .6rem}
+.doc a{color:var(--ink); text-decoration-color:var(--mark);
+  text-underline-offset:3px; text-decoration-thickness:2px}
+.updated{color:var(--metal); margin:0 0 .4rem; text-transform:uppercase;
+  letter-spacing:.1em; font-size:.72rem;
+  font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* Künye: kart değil — solda mürekkep kural. */
+.note{border-left:4px solid var(--ink); background:var(--paper-2);
+  padding:1rem 1.2rem; margin:1.4rem 0 .4rem}
+.note.mark{border-left-color:var(--mark)}
+.note strong{font-weight:700}
+
+table{width:100%; border-collapse:collapse; margin:.9rem 0 .3rem;
+  font-size:.95rem; display:block; overflow-x:auto}
+th,td{text-align:left; padding:.62rem .7rem; border-bottom:1px solid var(--hair);
+  vertical-align:top}
+th{color:var(--metal); font-weight:600; font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.07em}
+ul{padding-left:1.15rem} li{margin:.3rem 0}
+code{background:var(--paper-2); padding:.1rem .38rem; font-size:.9em}
+
+/* Ana sayfa */
+.hero{padding:2.4rem 0 1rem}
+.hero h1{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:clamp(2.2rem,6vw,3.2rem); line-height:1.06; font-weight:700;
+  margin:.2rem 0 .8rem; letter-spacing:-.025em}
+.hero p.lede{color:var(--ink-soft); font-size:1.08rem; max-width:54ch; margin:0}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1px; background:var(--hair); border-block:1px solid var(--hair); margin:2.4rem 0 1rem}
+.tile{background:var(--paper); padding:1.15rem 1.25rem}
+.tile h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:1rem; margin:.1rem 0 .35rem; font-weight:700}
+.tile p{margin:0; color:var(--ink-soft); font-size:.95rem}
+
+.site-footer{border-top:1px solid var(--hair); padding:1.5rem 0;
+  color:var(--metal); font-size:.88rem}
+.site-footer .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem;
+  justify-content:space-between}
+.footer-links{display:flex; gap:1.1rem}
+.footer-links a{color:var(--metal); text-decoration:none}
+.footer-links a:hover{color:var(--ink)}
