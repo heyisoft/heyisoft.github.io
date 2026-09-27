@@ -1,0 +1,87 @@
+/* Denge: sakin, serin notr zemin; tek vurgu iOS sistem mavisi.
+   MakeDay'in yapisindan turetildi, kagit dokusu yerine duz, hava alan bir zemin. */
+:root{
+  --paper:#F2F4F7; --paper-2:#E6EAF0; --surface:#FFFFFF;
+  --ink:#1B1F26; --ink-soft:#5A6270; --hair:#DDE2E9;
+  --blue:#007AFF; --blue-ink:#0062CC; --blue-soft:#E6F0FC;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#121417; --paper-2:#1A1D22; --surface:#1C1F24;
+         --ink:#ECEFF3; --ink-soft:#A2AAB6; --hair:#2A2F37;
+         --blue:#0A84FF; --blue-ink:#5AA9FF; --blue-soft:#132338; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Inter Tight",system-ui,-apple-system,sans-serif;
+  font-size:17px; line-height:1.62; letter-spacing:.002em;
+}
+.container{width:min(720px,calc(100% - 2rem)); margin-inline:auto}
+.container.wide{width:min(920px,calc(100% - 2rem))}
+
+a:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:4px}
+
+.site-header{border-bottom:1px solid var(--hair); background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); position:sticky; top:0; z-index:10}
+.site-header .container{display:flex; flex-wrap:wrap; gap:.5rem 1.2rem; align-items:center;
+  justify-content:space-between; padding:.8rem 0}
+.brand-wrap{display:flex; align-items:baseline; gap:.6rem}
+.brand{display:inline-flex; align-items:baseline; gap:.45rem; text-decoration:none; color:var(--ink);
+  font-family:"Instrument Serif",Georgia,serif; font-size:1.55rem; line-height:1; letter-spacing:-.01em}
+/* kucuk denge isareti: esit iki kefe */
+.brand .scale{display:inline-block; width:14px; height:14px; position:relative; top:-1px}
+.brand .scale::before,.brand .scale::after{content:""; position:absolute; width:6px; height:6px;
+  border-radius:50%; background:var(--blue); bottom:0}
+.brand .scale::before{left:0} .brand .scale::after{right:0}
+.brand-tag a{color:var(--ink-soft); text-decoration:none; font-size:.82rem}
+.brand-tag a:hover{color:var(--blue-ink)}
+.site-nav{display:flex; gap:1.1rem; flex-wrap:wrap}
+.site-nav a{color:var(--ink-soft); text-decoration:none; font-size:.94rem; padding-bottom:2px}
+.site-nav a:hover{color:var(--blue-ink)}
+.site-nav a.active{color:var(--ink); font-weight:600; border-bottom:2px solid var(--blue)}
+
+main{padding:2.6rem 0 3.4rem}
+.doc h1{font-family:"Instrument Serif",Georgia,serif; font-weight:400; font-size:clamp(2.3rem,6vw,3.1rem);
+  line-height:1.05; margin:.2rem 0 1.4rem; letter-spacing:-.015em}
+.doc h2{font-family:"Inter Tight",system-ui,sans-serif; font-weight:600; font-size:1.12rem;
+  margin:2.3rem 0 .55rem; letter-spacing:-.005em}
+.doc p,.doc li{color:var(--ink)}
+.doc a{color:var(--blue-ink)}
+.updated{color:var(--ink-soft); margin:0 0 .3rem; font-size:.88rem}
+.callout{background:var(--blue-soft); border-left:3px solid var(--blue);
+  border-radius:0 var(--radius) var(--radius) 0; padding:1.05rem 1.25rem; margin:1.4rem 0 .4rem}
+.callout p{margin:.4rem 0 0}
+.callout p:first-child{margin-top:0}
+table{width:100%; border-collapse:collapse; margin:.9rem 0 .3rem; font-size:.94rem; display:block; overflow-x:auto}
+th,td{text-align:left; padding:.62rem .7rem; border-bottom:1px solid var(--hair); vertical-align:top}
+th{color:var(--ink-soft); font-weight:600; font-size:.86rem}
+td:first-child{min-width:9rem}
+ul{padding-left:1.15rem} li{margin:.3rem 0}
+
+/* landing */
+.hero{padding:2.4rem 0 1.2rem}
+.hero h1{font-family:"Instrument Serif",Georgia,serif; font-weight:400; font-size:clamp(3rem,11vw,5.2rem);
+  line-height:.95; margin:0 0 1rem; letter-spacing:-.02em}
+.hero p.lede{color:var(--ink-soft); font-size:1.12rem; max-width:52ch; margin:0}
+.hero .status{display:inline-block; margin-top:1.4rem; font-size:.92rem; color:var(--ink);
+  background:var(--surface); border:1px solid var(--hair); border-radius:10px; padding:.38rem .95rem}
+.features{list-style:none; padding:0; margin:2.4rem 0 1rem; border-top:1px solid var(--hair)}
+.features li{display:grid; grid-template-columns:minmax(0,13rem) minmax(0,1fr); gap:.4rem 1.6rem;
+  padding:1.05rem 0; margin:0; border-bottom:1px solid var(--hair)}
+.features h3{font-size:1rem; font-weight:600; margin:0}
+.features p{margin:0; color:var(--ink-soft); font-size:.97rem}
+.landing-note{color:var(--ink-soft); font-size:.95rem; margin-top:1.6rem}
+.landing-note a{color:var(--blue-ink)}
+
+@media (max-width:600px){
+  .features li{grid-template-columns:1fr}
+  main{padding:1.8rem 0 2.6rem}
+}
+
+.site-footer{border-top:1px solid var(--hair); padding:1.5rem 0; color:var(--ink-soft); font-size:.88rem}
+.site-footer .container{display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; justify-content:space-between}
+.footer-links{display:flex; gap:1.1rem}
+.footer-links a{color:var(--ink-soft); text-decoration:none}
+.footer-links a:hover{color:var(--blue-ink)}
