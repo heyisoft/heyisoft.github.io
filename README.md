@@ -16,6 +16,15 @@ Multi-app aware: each app lives in its own subdirectory.
 | `/taslak/terms/` | `taslak/terms/index.html` | Taslak Terms of Use |
 | `/taslak/contact/` | `taslak/contact/index.html` | Taslak Contact & Support |
 | `/taslak/assets/style.css` | — | Taslak-only stylesheet |
+| `/kalender/` | `kalender/index.html` | Kalender landing + legal index (EN) |
+| `/kalender/privacy/` | `kalender/privacy/index.html` | Kalender Privacy Policy (EN) |
+| `/kalender/terms/` | `kalender/terms/index.html` | Kalender Terms of Use (EN) |
+| `/kalender/contact/` | `kalender/contact/index.html` | Kalender Contact & Support (EN) |
+| `/kalender/tr/` | `kalender/tr/index.html` | Kalender tanıtım + hukuki dizin (TR) |
+| `/kalender/tr/privacy/` | `kalender/tr/privacy/index.html` | Kalender Gizlilik Politikası ve KVKK Aydınlatma Metni (TR) |
+| `/kalender/tr/terms/` | `kalender/tr/terms/index.html` | Kalender Kullanım Koşulları (TR) |
+| `/kalender/tr/contact/` | `kalender/tr/contact/index.html` | Kalender İletişim ve destek (TR) |
+| `/kalender/assets/style.css` | — | Kalender-only stylesheet |
 
 ## Per-app isolation (important)
 
@@ -29,6 +38,18 @@ another.
 - **Taslak** (`/taslak/*`) uses `taslak/assets/style.css` — matches the Taslak
   app palette (LinkedIn-blue `#0A66C2`, score-ring motif, sparkle accent;
   Bricolage Grotesque + IBM Plex Sans).
+- **Kalender** (`/kalender/*`) uses `kalender/assets/style.css` — the app's own
+  tokens (indigo thread `#27307A`, morning-glass `#EEF2F7`, saffron / sage /
+  lavender energy beads), light and dark; thread-and-bead SVG motif; Gambarino
+  headings (Fontshare CSS API, unmodified per the ITF Free Font License) + system UI body.
+
+## Bilingual apps (TR + EN)
+
+An app that needs Turkish and English keeps English at `/<app>/...` and mirrors
+every page under `/<app>/tr/...` with the same slugs. Each page links its twin
+with `rel="alternate" hreflang` and a language switch in the header nav, so each
+language has its own URL for the store listing (e.g. App Store privacy URL per
+locale). Kalender is the first app using this pattern.
 
 ## Adding a new app
 
@@ -47,6 +68,7 @@ another.
 - Google Fonts loaded per-stylesheet:
   - Root: Fraunces (display), Inter Tight (body).
   - Taslak: Bricolage Grotesque (headings), IBM Plex Sans (body), IBM Plex Mono (code).
+  - Kalender: Gambarino (headings, from Fontshare), system UI (body).
 - Subtle CSS-only animations (fade-up / lift-in on load, hover transitions).
 - Respects `prefers-reduced-motion`.
 

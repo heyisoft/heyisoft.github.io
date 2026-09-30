@@ -1,0 +1,159 @@
+/* Kalender: sabah cami zemini, civit ip, enerji boncuklari.
+   Renkler uygulamanin tasarim sisteminden (kalender/docs/design/02_tasarim_sistemi.md §2.1).
+   Baslik yazi tipi Gambarino (Fontshare, ITF Free Font License), Fontshare CSS API ile
+   yuklenir; dosya donusturulmez, depoya konmaz. Govde sistem yazi tipi (uygulamada SF Pro).
+   Gambarino yalniz buyuk basliklarda kullanilir, tek kesim oldugu icin kalinlastirilmaz. */
+:root{
+  color-scheme: light dark;
+  --bg:#EEF2F7; --surface:#F8FAFC; --sunken:#E2E8F1; --selected:#DFE4F3;
+  --ink:#161B45; --ink-muted:#4A5078; --ink-faint:#5C6186;
+  --thread:#27307A; --thread-past:#C9CEE8; --on-thread:#FFFFFF;
+  --hair:#C3CBDA; --focus:#27307A;
+  --high:#E3A21A; --high-edge:#A87400;
+  --mid:#7FA38A;  --mid-edge:#58806A;
+  --low:#B7AEDB;  --low-edge:#7F72B8;
+  --shadow:rgba(39,48,122,.16);
+  --display:"Gambarino", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --text:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#10132B; --surface:#181C3A; --sunken:#0B0E22; --selected:#232852;
+    --ink:#E8EBF7; --ink-muted:#B3B8D6; --ink-faint:#8E94B8;
+    --thread:#9EA7F2; --thread-past:#2F3566; --on-thread:#10132B;
+    --hair:#2A2F55; --focus:#C4CAFF;
+    --high:#EDB23F; --high-edge:#EDB23F;
+    --mid:#95BBA0;  --mid-edge:#95BBA0;
+    --low:#C4BCE8;  --low-edge:#C4BCE8;
+    --shadow:rgba(5,7,22,.4);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--text); font-size:1.0625rem; line-height:1.6;
+}
+a{color:var(--thread); text-underline-offset:.18em; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:6px}
+.skip{position:absolute; left:1rem; top:-3rem; background:var(--thread); color:var(--on-thread);
+  padding:.5rem .9rem; border-radius:10px; z-index:20}
+.skip:focus{top:.75rem}
+
+.container{width:min(44rem, calc(100% - 2rem)); margin-inline:auto}
+.container.wide{width:min(60rem, calc(100% - 2rem))}
+
+/* header: marka isareti kisa bir ip ve uc boncuk */
+.site-header{border-bottom:1px solid var(--hair)}
+.site-header .container{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:.6rem 1.4rem; padding:.9rem 0}
+.brand-wrap{display:flex; align-items:baseline; gap:.65rem}
+.brand{display:inline-flex; align-items:center; gap:.5rem; color:var(--ink); text-decoration:none;
+  font-family:var(--display); font-size:1.6rem; line-height:1}
+.brand svg{width:34px; height:14px; flex:none}
+.brand-tag{font-size:.82rem; color:var(--ink-muted)}
+.brand-tag a{color:inherit; text-decoration:none}
+.brand-tag a:hover{color:var(--thread)}
+.site-nav{display:flex; flex-wrap:wrap; align-items:center; gap:.2rem 1.1rem; font-size:.95rem}
+.site-nav a{color:var(--ink-muted); text-decoration:none; padding:.35rem 0}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--ink); font-weight:600;
+  box-shadow:inset 0 -2px 0 var(--thread)}
+.site-nav .lang{border:1px solid var(--hair); border-radius:999px; padding:.2rem .7rem;
+  color:var(--ink); background:var(--surface)}
+.site-nav .lang:hover{border-color:var(--thread)}
+
+main{padding:2.5rem 0 3.5rem}
+
+/* landing: ip sahnesi sayfanin tek gosterisli ogesi */
+.hero{padding:1.5rem 0 0}
+.hero h1{font-family:var(--display); font-weight:400; font-size:clamp(2.6rem, 8.5vw, 5rem);
+  line-height:1.02; letter-spacing:-.01em; margin:0; max-width:14ch}
+.hero .lede{font-size:1.15rem; color:var(--ink-muted); max-width:36rem; margin:1.1rem 0 0}
+.hero .status{margin:1.4rem 0 0; font-size:.95rem; color:var(--ink)}
+
+.stage{margin:2rem 0 .4rem; width:100%}
+.stage svg{display:block; width:100%; height:clamp(100px, 13vw, 150px); overflow:visible}
+.stage figcaption{font-size:.9rem; color:var(--ink-muted); margin-top:1rem; max-width:40rem}
+.stage .t-past{stroke:var(--thread-past)}
+.stage .t-now{stroke:var(--thread)}
+.stage .now{stroke:var(--thread)}
+.stage .b-high{fill:var(--high); stroke:var(--high-edge)}
+.stage .b-mid{fill:var(--mid); stroke:var(--mid-edge)}
+.stage .b-low{fill:var(--low); stroke:var(--low-edge)}
+.stage .pending{fill-opacity:.42}
+.stage .glint{fill:#FFFFFF; fill-opacity:.55; stroke:none}
+.stage .meeting{fill:var(--surface); stroke:var(--thread)}
+.stage .wrap{stroke:var(--thread)}
+.stage .bead{animation:settle .9s cubic-bezier(.2,.9,.25,1.15) both}
+.stage .bead:nth-of-type(2){animation-delay:.08s}
+.stage .bead:nth-of-type(3){animation-delay:.16s}
+.stage .bead:nth-of-type(4){animation-delay:.24s}
+.stage .bead:nth-of-type(5){animation-delay:.32s}
+.stage .bead:nth-of-type(6){animation-delay:.40s}
+@keyframes settle{from{transform:translateY(-28px); opacity:0} to{transform:none; opacity:1}}
+@media (prefers-reduced-motion: reduce){ .stage .bead{animation:none} }
+
+.points{list-style:none; padding:0; margin:2.4rem 0 0; display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr)); gap:1.6rem 2.4rem}
+.points li{margin:0; padding-left:1.5rem; position:relative}
+.points li::before{content:""; position:absolute; left:0; top:.42em; width:.8rem; height:.8rem;
+  border-radius:50%; border:2px solid var(--edge, var(--thread)); background:var(--fill, transparent)}
+.points li.e-high{--fill:var(--high); --edge:var(--high-edge)}
+.points li.e-mid{--fill:var(--mid); --edge:var(--mid-edge)}
+.points li.e-low{--fill:var(--low); --edge:var(--low-edge)}
+.points h2{font-size:1.02rem; font-weight:600; margin:0 0 .25rem; line-height:1.35}
+.points p{margin:0; color:var(--ink-muted); font-size:.98rem}
+
+.legal-index{margin:3.2rem 0 0; border-top:2px solid var(--thread); padding-top:1.4rem}
+.legal-index h2{font-family:var(--display); font-weight:400; font-size:1.9rem; line-height:1.1; margin:0 0 .8rem}
+.legal-index ul{list-style:none; padding:0; margin:0}
+.legal-index li{margin:0; border-bottom:1px solid var(--hair)}
+.legal-index a{display:grid; grid-template-columns:minmax(0,12rem) minmax(0,1fr); gap:.2rem 1.4rem;
+  padding:.95rem 0; text-decoration:none; color:var(--ink)}
+.legal-index a strong{font-weight:600}
+.legal-index a span{color:var(--ink-muted); font-size:.96rem}
+.legal-index a:hover strong{text-decoration:underline; text-underline-offset:.18em}
+
+/* hukuki belgeler */
+.doc h1{font-family:var(--display); font-weight:400; font-size:clamp(2.3rem, 7vw, 3.4rem);
+  line-height:1.05; margin:.2rem 0 1.3rem}
+.doc h2{font-size:1.15rem; font-weight:600; line-height:1.35; margin:2.4rem 0 .5rem}
+.doc h3{font-size:1rem; font-weight:600; margin:1.4rem 0 .3rem}
+.doc p, .doc li{max-width:40rem}
+.updated{color:var(--ink-muted); font-size:.9rem; margin:0}
+.short{background:var(--surface); border-radius:18px; padding:1.1rem 1.3rem 1.1rem 1.5rem;
+  margin:1.2rem 0 .6rem; box-shadow:inset 3px 0 0 var(--thread), 0 1px 0 var(--hair)}
+.short p{margin:.5rem 0 0} .short p:first-child{margin-top:0}
+.doc ul{padding-left:1.2rem} .doc li{margin:.35rem 0}
+.table-wrap{overflow-x:auto; margin:.9rem 0 .4rem; -webkit-overflow-scrolling:touch}
+table{width:100%; min-width:34rem; border-collapse:collapse; font-size:.95rem}
+caption{text-align:left; color:var(--ink-muted); font-size:.88rem; padding-bottom:.4rem}
+th, td{text-align:left; vertical-align:top; padding:.65rem .7rem; border-bottom:1px solid var(--hair)}
+th{font-weight:600; color:var(--ink-muted); font-size:.88rem}
+td:first-child{font-weight:600; min-width:9rem}
+.mail{font-size:1.25rem; margin:1rem 0}
+
+.site-footer{border-top:1px solid var(--hair); padding:1.5rem 0 2rem; color:var(--ink-muted); font-size:.9rem}
+.site-footer .container{display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between}
+.footer-links{display:flex; flex-wrap:wrap; gap:.4rem 1.1rem}
+.footer-links a{color:var(--ink-muted); text-decoration:none}
+.footer-links a:hover{color:var(--thread)}
+
+@media (max-width:37.5rem){
+  main{padding:1.6rem 0 2.6rem}
+  .legal-index a{grid-template-columns:1fr}
+  .site-nav{gap:.1rem .9rem}
+}
+
+/* dar ekranda tablolar yiginlanir: her satir bir blok, hucre basligi data-label'dan */
+@media (max-width:37.5rem){
+  table{min-width:0}
+  table tr:first-child{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  table tr{display:block; padding:.7rem 0; border-bottom:1px solid var(--hair)}
+  td{display:block; border:0; padding:.15rem 0}
+  td:first-child{min-width:0}
+  td:nth-child(2):not(:last-child)::before, td:nth-child(3)::before{content:attr(data-label); display:block; font-size:.82rem; font-weight:600; color:var(--ink-muted); margin-top:.35rem}
+}
