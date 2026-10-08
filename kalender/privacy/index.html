@@ -36,16 +36,16 @@
   </header>
   <main id="content">
     <div class="container doc">
-      <p class="updated">Last updated: 30 September 2026</p>
+      <p class="updated">Last updated: 8 October 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="short">
         <p><strong>The short version.</strong> Kalender has no account and no server of its own.
         Your tasks and plans are stored <strong>only on your phone</strong>. Your calendar is read
         on the phone to plan around your meetings, and calendar data never leaves it.</p>
-        <p>Three things do leave the device: <strong>crash reports</strong> and
-        <strong>usage statistics</strong> (through Google Firebase, never your task titles or calendar
-        content, and you can turn both off in Settings), and <strong>subscription information</strong>:
+        <p>Three things can leave the device: <strong>crash reports</strong> (on unless you turn them
+        off), <strong>usage statistics</strong> (off until you agree; the app asks you once), both through
+        Google Firebase and never with your task titles or calendar content, and <strong>subscription information</strong>:
         an anonymous identifier used to check whether Kalender Pro is active, plus the purchase record
         if you subscribe (through Apple or Google, and RevenueCat). There is no advertising and no
         advertising identifier.</p>
@@ -93,6 +93,16 @@
         drive) is your choice. The file is not encrypted, so keep it somewhere you trust. Importing a
         file replaces the data in the app with the file&rsquo;s content, after a safety copy is made.
       </p>
+      <p>
+        <strong>Features that work only on your device.</strong> Routines (tasks that repeat) are kept in
+        the same local database. Reminders, the morning summary, the evening preview and the ongoing
+        notification are local notifications scheduled on your phone; there is no push server. Widgets,
+        the Live Activity, Siri and Shortcuts (App Intents), the Android Quick Settings tile, app
+        shortcuts and adding a task from the share sheet all run inside the app on your phone and send
+        nothing to us. When you speak to Siri, Apple processes what you say under its own terms.
+        &ldquo;Break down&rdquo;, which splits a task into smaller steps, uses Apple&rsquo;s on-device
+        model on supported iPhones; the task text never leaves the device.
+      </p>
 
       <h2>4. Your calendar</h2>
       <p>
@@ -128,7 +138,8 @@
         <tr>
           <td data-label="Data">Usage statistics</td>
           <td data-label="Recipient">Google, through <strong>Firebase Analytics</strong> (Google Analytics for Firebase)</td>
-          <td data-label="Purpose">Understanding which features are used, so we know what to improve. Events such as app
+          <td data-label="Purpose">Only if you agree. The app asks once, on its second launch; until you
+            agree, and if you decline, nothing is sent. Understanding which features are used, so we know what to improve. Events such as app
             opens, screens viewed and features used (for example, that a day was rebuilt), with a random
             app-instance identifier, the device model, operating system, app version, language, and an
             approximate country or region that Google derives from a masked IP address.</td>
@@ -161,15 +172,20 @@
 
       <h2>7. Turning off crash reports and usage statistics</h2>
       <p>
-        You can turn off crash reports and usage statistics with the switch in the app&rsquo;s
-        Settings. From then on the app sends neither. Deleting the app also stops all collection.
+        In the app&rsquo;s Settings &rsaquo; Privacy there are two separate switches. &ldquo;Anonymous usage
+        data&rdquo; controls usage statistics; it is off until you agree and you can change your answer
+        at any time. &ldquo;Crash reports&rdquo; controls crash reports; it is on by default and you can
+        turn it off. Once a switch is off, the app stops sending that data. Deleting the app also stops
+        all collection.
       </p>
 
       <h2>8. Legal bases (GDPR and KVKK)</h2>
       <ul>
-        <li><strong>Crash reports and usage statistics:</strong> our legitimate interest in keeping the
-          app working and improving it (GDPR Art. 6(1)(f); KVKK Art. 5(2)(f)). The data is minimal, not
-          linked to your identity, and you can switch it off at any time.</li>
+        <li><strong>Usage statistics:</strong> your consent (GDPR Art. 6(1)(a); KVKK Art. 5(1)), given
+          in the app and withdrawable at any time in Settings &rsaquo; Privacy.</li>
+        <li><strong>Crash reports:</strong> our legitimate interest in keeping the app working (GDPR
+          Art. 6(1)(f); KVKK Art. 5(2)(f)). The data is minimal, not linked to your identity, and you can
+          switch it off at any time.</li>
         <li><strong>Subscription status check:</strong> our legitimate interest in offering Kalender Pro
           and knowing whether it is active (GDPR Art. 6(1)(f); KVKK Art. 5(2)(f)).</li>
         <li><strong>Purchases:</strong> performance of the contract you enter when you subscribe

@@ -36,16 +36,16 @@
   </header>
   <main id="content">
     <div class="container doc">
-      <p class="updated">Son güncelleme: 30 Eylül 2026</p>
+      <p class="updated">Son güncelleme: 8 Ekim 2026</p>
       <h1>Gizlilik Politikası ve KVKK Aydınlatma Metni</h1>
 
       <div class="short">
         <p><strong>Kısaca.</strong> Kalender&rsquo;in hesabı da kendine ait bir sunucusu da yok.
         Görevlerin ve planların <strong>yalnızca telefonunda</strong> saklanır. Takvimin,
         toplantılarının etrafına plan yapmak için telefonda okunur ve takvim verisi telefondan çıkmaz.</p>
-        <p>Cihazdan üç şey çıkar: <strong>hata raporları</strong> ve <strong>kullanım
-        istatistikleri</strong> (Google Firebase aracılığıyla; görev başlıkların ya da takvim içeriğin
-        asla gitmez, ikisini de Ayarlar&rsquo;dan kapatabilirsin) ve <strong>abonelik bilgisi</strong>: Kalender Pro&rsquo;nun açık olup
+        <p>Cihazdan üç şey çıkabilir: <strong>hata raporları</strong> (sen kapatmadıkça açık),
+        <strong>kullanım istatistikleri</strong> (sen onay verene dek kapalı; uygulama bir kez sorar),
+        ikisi de Google Firebase aracılığıyla ve görev başlıkların ya da takvim içeriğin olmadan, ve <strong>abonelik bilgisi</strong>: Kalender Pro&rsquo;nun açık olup
         olmadığını denetlemek için anonim bir kimlik, abone olursan da satın alma kaydı (Apple ya da
         Google ve RevenueCat aracılığıyla). Reklam ve reklam kimliği yok.</p>
       </div>
@@ -93,6 +93,16 @@
         bir bulut sürücü) sen karar verirsin. Dosya şifreli değildir, güvendiğin bir yerde sakla. Bir dosyayı
         içe aktarmak, önce güvenlik kopyası alınarak, uygulamadaki veriyi dosyanın içeriğiyle değiştirir.
       </p>
+      <p>
+        <strong>Yalnız cihazında çalışan özellikler.</strong> Rutinler (tekrarlayan işler) aynı yerel
+        veritabanında tutulur. Hatırlatmalar, sabah özeti, akşam ön izlemesi ve sürekli bildirim
+        telefonunda kurulan yerel bildirimlerdir; push sunucusu yoktur. Widget&rsquo;lar, Live Activity,
+        Siri ve Kestirmeler (App Intents), Android Hızlı Ayarlar karosu, uygulama kısayolları ve paylaşma
+        menüsünden görev ekleme telefonunda, uygulamanın içinde çalışır ve bize hiçbir şey göndermez.
+        Siri&rsquo;ye söylediğini Apple kendi koşullarıyla işler. Bir görevi küçük adımlara bölen
+        &ldquo;Dağıt&rdquo;, desteklenen iPhone&rsquo;larda Apple&rsquo;ın cihaz üstü modelini kullanır;
+        görev metni cihazdan çıkmaz.
+      </p>
 
       <h2>4. Takvimin</h2>
       <p>
@@ -127,7 +137,8 @@
         <tr>
           <td data-label="Veri">Kullanım istatistikleri</td>
           <td data-label="Alıcı"><strong>Firebase Analytics</strong> (Google Analytics for Firebase) aracılığıyla Google</td>
-          <td data-label="Amaç">Hangi özelliklerin kullanıldığını anlayıp neyi iyileştireceğimizi bilmek. Uygulamanın
+          <td data-label="Amaç">Yalnız onay verirsen. Uygulama ikinci açılışında bir kez sorar; onay
+            verene dek ya da reddedersen hiçbir şey gönderilmez. Hangi özelliklerin kullanıldığını anlayıp neyi iyileştireceğimizi bilmek. Uygulamanın
             açılması, görüntülenen ekranlar ve kullanılan özellikler (örneğin bir günün yeniden kurulduğu)
             gibi olaylar; rastgele bir uygulama örneği kimliği, cihaz modeli, işletim sistemi, uygulama
             sürümü, dil ve Google&rsquo;ın maskelenmiş IP adresinden çıkardığı yaklaşık ülke ya da bölge.</td>
@@ -159,16 +170,19 @@
 
       <h2>7. Hata raporlarını ve kullanım istatistiklerini kapatma</h2>
       <p>
-        Hata raporlarını ve kullanım istatistiklerini uygulamanın Ayarlar ekranındaki anahtarla
-        kapatabilirsin. O andan sonra uygulama ikisini de göndermez. Uygulamayı silmek de bütün
-        toplamayı durdurur.
+        Uygulamanın Ayarlar &rsaquo; Gizlilik bölümünde iki ayrı anahtar vardır. &ldquo;Anonim kullanım
+        verisi&rdquo; kullanım istatistiklerini yönetir; sen onay verene dek kapalıdır ve kararını
+        istediğin an değiştirebilirsin. &ldquo;Hata raporları&rdquo; hata raporlarını yönetir; varsayılan
+        olarak açıktır ve kapatabilirsin. Bir anahtar kapandığında uygulama o veriyi göndermeyi bırakır.
+        Uygulamayı silmek de bütün toplamayı durdurur.
       </p>
 
       <h2>8. İşlemenin hukuki sebepleri</h2>
       <ul>
-        <li><strong>Hata raporları ve kullanım istatistikleri:</strong> uygulamayı çalışır tutma ve
-          geliştirmedeki meşru menfaatimiz (KVKK m. 5/2-f; GDPR m. 6/1-f). Veri asgari düzeydedir,
-          kimliğine bağlanmaz ve istediğin an kapatabilirsin. Bu veriler otomatik yollarla, uygulama
+        <li><strong>Kullanım istatistikleri:</strong> açık rızan (KVKK m. 5/1; GDPR m. 6/1-a); uygulama
+          içinde verilir ve Ayarlar &rsaquo; Gizlilik&rsquo;ten istediğin an geri alınabilir.</li>
+        <li><strong>Hata raporları:</strong> uygulamayı çalışır tutmadaki meşru menfaatimiz (KVKK m. 5/2-f;
+          GDPR m. 6/1-f). Veri asgari düzeydedir, kimliğine bağlanmaz ve istediğin an kapatabilirsin. Bu veriler otomatik yollarla, uygulama
           içindeki yazılım bileşenleri aracılığıyla toplanır.</li>
         <li><strong>Abonelik durumunun denetlenmesi:</strong> Kalender Pro&rsquo;yu sunma ve açık olup
           olmadığını bilmedeki meşru menfaatimiz (KVKK m. 5/2-f; GDPR m. 6/1-f).</li>
