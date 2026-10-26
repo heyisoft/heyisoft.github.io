@@ -29,18 +29,20 @@
   </header>
   <main>
     <div class="container doc">
-      <p class="updated">Last updated: 26 September 2026</p>
+      <p class="updated">Last updated: 26 October 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="callout">
         <p><strong>The short version.</strong> Denge looks at your photos and documents
         <strong>on your iPhone</strong>, and nothing it looks at is ever uploaded, to us or
-        anyone else. There is no account, no analytics, no crash reporting and no advertising, and
-        heyisoft runs no servers that receive your data.</p>
-        <p>Two things do leave the device: an <strong>approximate location</strong> (never a
+        anyone else. There is no account, no crash reporting and no advertising, and heyisoft runs no servers
+        that receive your data.</p>
+        <p>Three things do leave the device: an <strong>approximate location</strong> (never a
         photo, never its exact position) sent to Apple to look up city names, which you can switch
-        off, and <strong>purchase information</strong> with an anonymous identifier, used to check
-        whether Denge Pro is active.</p>
+        off, <strong>purchase information</strong> with an anonymous identifier, used to check
+        whether Denge Pro is active, and <strong>anonymous usage statistics</strong> sent to
+        Google Firebase Analytics: which screens and features are used, never your photos,
+        documents or anything you type. There is no tracking and no advertising.</p>
       </div>
 
       <h2>1. Who we are</h2>
@@ -93,14 +95,19 @@
           <td>Payment is handled by <strong>Apple</strong>. Whether Denge Pro is active is checked through <strong>RevenueCat</strong>, which receives purchase information and an anonymous identifier the app generates. No name, email, photos or documents</td>
           <td>Unlocking Denge Pro and restoring it</td>
         </tr>
+        <tr>
+          <td>Anonymous usage statistics (Firebase Analytics)</td>
+          <td>Sent to <strong>Google</strong>, which processes it for us as our service provider. Includes which screens and features are used, rough ranges instead of exact counts (for example "10 to 99 photos"), the steps of the paywall and purchase flow, standard device information Firebase records (device model, iOS version, country) and a random app-instance identifier. Never your photos, documents, names, labels, search text, location or an advertising identifier. Kept for 2 months. Only in the App Store version of the app</td>
+          <td>Seeing which features help people and where the app can improve</td>
+        </tr>
       </table>
 
       <h2>4. What we do not collect</h2>
       <ul>
         <li>No photos, videos or documents, and nothing derived from them. They never leave your iPhone.</li>
         <li>No account, sign-up, name, email address or phone number.</li>
-        <li>No analytics and no crash-reporting tools.</li>
-        <li>No advertising, no advertising identifiers, and nothing is ever sold.</li>
+        <li>No crash-reporting tools. Anonymous usage statistics are the only analytics (see Firebase Analytics below), and they contain no photos, documents, file or album names, labels, search text or locations.</li>
+        <li>No advertising, no advertising identifiers (the app never asks for one), no tracking across other companies' apps and websites, and nothing is ever sold.</li>
         <li>No biometric data. See Face ID below.</li>
       </ul>
 
@@ -115,6 +122,33 @@
       <p>
         You can switch this off in the app's Settings with the <em>Look Up Place Names</em> switch under Places. From
         then on, nothing is sent.
+      </p>
+
+      <h2>5a. Usage statistics (Firebase Analytics)</h2>
+      <p>
+        The App Store version of Denge uses Firebase Analytics, a service from Google, to count
+        how the app is used. Google acts as a processor on our behalf. The statistics are not
+        linked to your name, email address or any account, and they are not used for advertising
+        or to track you across other apps and websites. Google Analytics data is kept for
+        2 months.
+      </p>
+      <p>
+        <strong>What is sent:</strong> which screens and features are opened, the rough size of
+        your library and of a cleanup as a range, the steps of the paywall and purchase flow,
+        the settings you change, standard information Firebase records such as device model,
+        iOS version, app version and country, and a random identifier for this installation of
+        the app. The app does not read your advertising identifier, and Firebase's vendor
+        identifier collection is switched off.
+      </p>
+      <p>
+        <strong>What is never sent:</strong> photos, videos, documents, file, album or category
+        names, labels, search text, locations and place names, or any advertising identifier.
+      </p>
+      <p>
+        Google handles this data under
+        <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>
+        and the <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy information</a>.
+        Deleting the app stops all of it. Debug and test builds send nothing.
       </p>
 
       <h2>6. Permissions and system features</h2>
@@ -136,6 +170,7 @@
       <ul>
         <li>The index and the "Deleted here" history stay on your device until you clear them in the app or delete the app.</li>
         <li>Deleting the app removes its local data. Albums it created in Photos stay until you delete them.</li>
+        <li>Usage statistics are kept by Google Analytics for 2 months and then deleted.</li>
         <li>Purchase records are held by Apple under Apple's terms, and subscription status by RevenueCat under
           <a href="https://www.revenuecat.com/privacy/" rel="noopener">RevenueCat's privacy policy</a>.</li>
       </ul>
@@ -143,8 +178,8 @@
       <h2>9. Your rights</h2>
       <p>
         Depending on where you live, you may have the right to access, correct, delete or export
-        your personal data. We hold no personal data about you, because the app keeps everything on
-        your device. If you have a request or a question, write to
+        your personal data. We hold no personal data that identifies you: the app keeps your photos and documents on
+        your device, and the usage statistics are anonymous. If you have a request or a question, write to
         <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a>.
       </p>
 
