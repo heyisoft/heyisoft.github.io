@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — Sarman</title>
-  <meta name="description" content="Privacy Policy for Sarman: what stays on your device, what the optional Dress up feature sends to our server and Google's Gemini API, what anonymous data is collected, and your rights." />
+  <meta name="description" content="Privacy Policy for Sarman: what stays on your device, what the optional Dress up feature sends to our server and Google's Gemini API, how optional rewarded video ads (Google AdMob) and the advertising ID are handled, what anonymous data is collected, and your rights." />
   <meta name="theme-color" content="#FBF3E8" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
   </header>
   <main>
     <div class="container doc">
-      <p class="updated">Last updated: 25 October 2026</p>
+      <p class="updated">Last updated: 1 November 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="callout">
@@ -42,8 +42,10 @@
         exception you control: when you use <strong>Dress up</strong>, the one photo you pick is
         sent to our server and to <strong>Google's Gemini API</strong> to create the costume picture.
         We do not keep that photo. Apart from that, only anonymous usage and crash data and purchase
-        records leave your phone. Sarman contains <strong>no advertising SDK</strong> and does not
-        use your device's <strong>advertising identifier</strong>.
+        records leave your phone. When you run out of free uses you may choose to watch an optional
+        <strong>rewarded video ad</strong>, served by <strong>Google AdMob</strong>; AdMob can use your
+        device's <strong>advertising identifier</strong>, and on iPhone it only does so if you allow it
+        in Apple's tracking prompt. Subscribers see no ads.
       </div>
 
       <h2>1. Who we are</h2>
@@ -80,7 +82,7 @@
         <tr>
           <td>The anonymous identifier generated for your install (RevenueCat app user ID), a Firebase App Check token and your IP address, sent with each Dress up request</td>
           <td>Processed by <strong>our server</strong>; the identifier is checked with <strong>RevenueCat</strong>, the token with <strong>Google Firebase App Check</strong></td>
-          <td>Checking your subscription and credits, counting the credits you use, and blocking abuse and requests that do not come from the genuine app</td>
+          <td>Checking your subscription and tokens, counting the tokens you use, and blocking abuse and requests that do not come from the genuine app</td>
         </tr>
         <tr>
           <td>Diary entries, chat history and your personal sound labels</td>
@@ -103,9 +105,19 @@
           <td>Finding and fixing crashes</td>
         </tr>
         <tr>
-          <td>Purchase receipts for the optional subscription and for photo credit packs (product, purchase and renewal dates, store country) and the anonymous identifier generated for your install</td>
+          <td>Ad data, only if you choose to watch a rewarded video: device identifiers (Android Advertising ID / Apple IDFA where available and permitted), IP address and the approximate location derived from it, ad interactions (such as whether a video was shown and watched to the end), and diagnostic and performance data</td>
+          <td>Collected by the <strong>Google AdMob</strong> SDK and sent to <strong>Google</strong>, which acts as an independent controller for ad serving. It is not collected for subscribers, because no ads are loaded for them. We do not receive it</td>
+          <td>Serving and measuring the ad, preventing ad fraud, and (if you consent) personalising it. Retention is set by Google under <a href="https://policies.google.com/privacy" rel="noopener">its Privacy Policy</a>; we do not keep this data</td>
+        </tr>
+        <tr>
+          <td>Your ad consent choices (the Google consent form, and Apple's tracking permission on iOS)</td>
+          <td>Stored on your device by Google's consent SDK and by the operating system</td>
+          <td>Remembering whether you allowed personalised ads, so we ask only when needed</td>
+        </tr>
+        <tr>
+          <td>Purchase receipts for the optional subscription and for Dress up token packs (product, purchase and renewal dates, store country) and the anonymous identifier generated for your install</td>
           <td>Processed by <strong>RevenueCat</strong>; the payment itself is handled by Apple or Google</td>
-          <td>Checking that a subscription or credit purchase is valid and restoring a subscription when you change phone</td>
+          <td>Checking that a subscription or token purchase is valid and restoring a subscription when you change phone</td>
         </tr>
       </table>
 
@@ -115,7 +127,7 @@
         <li>No notes, no cat names, no diary content. No photos, except the single photo you send each time you choose to use Dress up.</li>
         <li>No account, e-mail address, name or phone number — the app has no sign-up.</li>
         <li>No contacts, files or precise location. Before a Dress up photo is sent to Google, our server re-encodes it, which removes embedded metadata such as GPS location and camera details.</li>
-        <li>No ads of any kind, no advertising SDK, and no advertising identifier (Android advertising ID / Apple IDFA). The app does not track you across other companies' apps or websites.</li>
+        <li>We do not read your advertising identifier ourselves and we do not build advertising profiles. Advertising data is collected only by Google AdMob when an ad is loaded or shown, as described in section 8, and never for subscribers.</li>
         <li>No card details — purchases are paid to Apple or Google, and we never receive your payment data.</li>
       </ul>
 
@@ -145,12 +157,12 @@
           send any text or instructions of its own: the costume description is fixed on our server.</li>
         <li><strong>Our server (ai.cockit.io), operated by heyisoft.</strong> It checks that the request
           comes from the genuine app (Firebase App Check, which uses Apple's App Attest on iOS and
-          Google Play Integrity on Android), checks your subscription and credits with
+          Google Play Integrity on Android), checks your subscription and tokens with
           RevenueCat, re-encodes the photo to strip metadata, and forwards it to Google. The photo and
           the result are handled in memory only: they are <strong>not written to disk, not kept, and
           not logged</strong>. Our logs record only technical facts such as the costume, the result
           status and the processing time. Your install identifier is kept only as a salted one-way hash,
-          next to the number of credits you have used. Your IP address is used to limit abuse; our
+          next to the number of tokens you have used. Your IP address is used to limit abuse; our
           application does not store it together with your photo.</li>
         <li><strong>Google Gemini API.</strong> The photo and the costume description are processed by
           Google LLC as our data processor, under the
@@ -165,7 +177,7 @@
           where Google or its agents have facilities. Before a costume is made, a Gemini model first checks
           that the photo shows a real cat and no person; a photo in which a person is visible is refused.
           Google's automated safety filters may also refuse a photo or a result. In all of these cases
-          no credit is used.</li>
+          no token is used.</li>
         <li><strong>The result.</strong> The costume picture is returned to your phone and stored in the
           app on your device. It is saved to your photo library or shared only when you tap
           <em>Save</em> or <em>Share</em>. Pictures created by Gemini carry Google's invisible SynthID
@@ -180,7 +192,7 @@
           a report for up to 30 days to review it, then delete it. We use reports to improve our filters.</li>
       </ul>
       <p>
-        Every service provider named in this policy — Google (Firebase Analytics, Crashlytics and App Check, and the Gemini API) and
+        Every service provider named in this policy — Google (Firebase Analytics, Crashlytics and App Check, the Gemini API and AdMob) and
         RevenueCat — receives only the data needed for the task described here, processes it under
         its own published terms, and is required by those terms to protect it at least as well as
         this policy describes.
@@ -202,39 +214,69 @@
 
       <h2>8. Advertising</h2>
       <p>
-        Sarman shows <strong>no ads</strong>. The app contains <strong>no advertising SDK</strong>,
-        does not read your device's <strong>advertising identifier</strong> (Android advertising ID /
-        Apple IDFA), and does not track you across other companies' apps or websites — so it never
-        asks for App Tracking Transparency permission or for advertising consent. Nothing from the
-        app is shared with an ad network.
+        Sarman has one kind of ad: an optional <strong>rewarded video</strong>. When you run out of
+        free listens or chat phrases, you can choose to watch a video to the end to get 5 more of
+        the one you ran out of, up to 3 videos a day. There are no banners, no interstitials and no
+        ads at app launch. <strong>Subscribers see no ads</strong>, and no ad is loaded for them.
       </p>
-
-      <h2>9. Purchases, subscriptions and photo credits</h2>
       <p>
-        There is one optional subscription — <strong>Sarman Pro, US$4.99 per month</strong>, shown in
-        your own currency in the app — which removes the free limits on listening and chat phrases, opens the
-        health radar and includes Dress up photo credits. You can also buy a one-time pack of
-        <strong>20 photo credits</strong> (US$6.99, shown in your own currency in the app). The terms of
-        both are in our <a href="/sarman/terms/">Terms of Use</a>. Payment is taken by
+        Videos are served by <strong>Google AdMob</strong>, which is part of Google LLC. When an ad
+        is requested, the AdMob SDK in the app collects and sends to Google the data listed in
+        section 3: device identifiers, your IP address and the approximate location derived from it,
+        ad interactions, and diagnostic data. Google uses it to serve and measure the ad, to prevent
+        fraud and, if you agree, to personalise the ad, and handles it as described in
+        <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a> and in
+        <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites or apps that use its services</a>.
+        Ad partners may use the advertising identifier to show you ads and to measure them, which
+        can include linking activity across apps. The AdMob SDK also reads technical information
+        from your device when it loads an ad; it does not read your recordings, photos, notes or
+        cat profiles. Sarman is not directed at children and does not knowingly show ads to them.
+      </p>
+      <ul>
+        <li><strong>Your advertising identifier.</strong> Android Advertising ID and Apple IDFA can be used for advertising. You can reset it or switch off personalised ads in your system settings (on Android: <em>Settings &rarr; Privacy &rarr; Ads</em>; on iOS: <em>Settings &rarr; Privacy &amp; Security &rarr; Tracking</em>).</li>
+        <li><strong>iPhone and iPad.</strong> The first time you tap to watch a video, Sarman shows Apple's App Tracking Transparency prompt (never when the app opens). Only if you choose <em>Allow</em> can the IDFA be used and your activity be tracked across other companies' apps and websites for advertising. If you choose <em>Ask App Not to Track</em>, you still get the reward, but the ad is not personalised and the IDFA is not available. Sarman does not track you in any other way, and not at all unless you allow it.</li>
+        <li><strong>Europe, UK and Switzerland.</strong> Before the first ad request, Google's consent form (built with Google's User Messaging Platform) asks whether ads may use your data for personalisation. If you decline, you can still watch a video, but it is a non-personalised ad. Where this form applies, you can change your choice at any time in <em>Settings &rarr; Ad privacy choices</em> in the app.</li>
+        <li><strong>Android.</strong> The app declares the permission to read the Android Advertising ID. If you have reset the ID or switched off ad personalisation, ads are non-personalised and the ID may be unavailable.</li>
+        <li><strong>Dress up and ads.</strong> Photos sent for Dress up are never shared with AdMob or any ad network.</li>
+      </ul>
+
+      <h2>9. Purchases, subscriptions and tokens</h2>
+      <p>
+        There is one optional subscription, <strong>Sarman Pro</strong>, with a monthly plan
+        (US$4.99 per month) and a yearly plan, each shown in your own currency in the app. It removes the free
+        limits on listening and chat phrases, opens the health radar and the vet summary, and
+        removes ads. If you are eligible, it starts with a <strong>3-day free trial</strong>; the
+        store decides eligibility. If you do not cancel at least 24 hours before the trial ends, the
+        subscription starts and you are charged. You can also buy a one-time pack of
+        <strong>20 Dress up tokens</strong> (US$6.99, shown in your own currency in the app); Dress up
+        is not part of Sarman Pro. The terms of both are in our <a href="/sarman/terms/">Terms of Use</a>. Payment is taken by
         <strong>Apple</strong> or <strong>Google</strong>, never by us: we never see your card, your
         billing address or your name.
       </p>
       <p>
-        We use <strong>RevenueCat</strong> to check that a subscription or credit purchase is valid and
+        We use <strong>RevenueCat</strong> to check that a subscription or token purchase is valid and
         to restore a subscription when you reinstall or change phone. RevenueCat receives the store's
         <strong>purchase receipt</strong> — product, purchase and renewal dates, store country —
         together with an anonymous identifier the app generates for your install. Our Dress up server
         asks RevenueCat, using that identifier, whether you have an active subscription and how many
-        credits you have bought. The identifier is not tied to your name or an e-mail address, because
+        tokens you have bought. The identifier is not tied to your name or an e-mail address, because
         the app has neither. See
         <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat's privacy policy</a>.
-        The counters for your free listens and free phrases are
-        kept on your device only.
+        The counters for your free listens and free phrases, and for the rewarded videos you watched
+        today, are kept on your device only.
+      </p>
+      <p>
+        <strong>Trial reminder.</strong> When a free trial starts, the app asks for permission to send
+        notifications. If you agree, it schedules one notification on your device about 24 hours
+        before the trial ends. This is a local notification: it is created and shown by your phone,
+        and no data about it is sent to us or anyone else. If you decline, the trial and the app work
+        the same; you just get no reminder.
       </p>
 
       <h2>10. Permissions the app asks for</h2>
       <ul>
         <li><strong>Microphone</strong> — required for recording. It is the whole point of the app: recording your cat's meow. Audio is analysed locally and never uploaded.</li>
+        <li><strong>Notifications</strong> — optional. Asked for only when a free trial starts, to remind you about 24 hours before it ends.</li>
         <li><strong>Camera</strong> — optional. To take a profile photo of your cat, or a photo to dress up.</li>
         <li><strong>Photos</strong> — optional. To pick a photo of your cat for the profile or for Dress up (through the system photo picker, which shares only the photo you select), and, if you tap <em>Save</em>, to add a costume picture to your library.</li>
       </ul>
@@ -254,8 +296,9 @@
 
       <h2>12. Legal bases (GDPR / KVKK)</h2>
       <ul>
-        <li><strong>Performance of contract</strong> — running the app you installed, processing recordings on your device to give you the result you asked for, and providing the subscription and credits you bought.</li>
+        <li><strong>Performance of contract</strong> — running the app you installed, processing recordings on your device to give you the result you asked for, and providing the subscription and tokens you bought.</li>
         <li><strong>Consent</strong> — sending a photo you chose to our server and to Google's Gemini API for Dress up. You give it in the app before your first photo is sent, and you can withdraw it at any time by turning off <em>Dress up photo sharing</em> in <em>Settings → Your data</em>, or simply by not using Dress up; withdrawing does not affect pictures already created.</li>
+        <li><strong>Consent (advertising)</strong> — personalised ads and the use of your advertising identifier for them, through Google's consent form (Europe, UK, Switzerland) or Apple's tracking prompt (iOS). Watching a rewarded video is optional, and you can change the choice as described in section 8. Without consent you still get the reward, with non-personalised ads.</li>
         <li><strong>Legitimate interests</strong> — anonymous analytics and crash reporting to keep the app working and improve it, and preventing abuse of the Dress up server.</li>
       </ul>
 
@@ -263,8 +306,9 @@
       <ul>
         <li>Everything on your device, including Dress up pictures, stays until you delete it (per item, or all at once with <em>Settings → Your data → Erase all my data</em>) or until you uninstall the app.</li>
         <li>Dress up photos and results: not stored on our server. Google may keep them for up to 55 days for abuse monitoring, as described in section 6. Reports are deleted after at most 30 days.</li>
-        <li>Dress up credit counters (salted hash of the install identifier and the number of credits used): subscription counters expire shortly after each billing period ends; counters for bought credits are kept for as long as those credits can be used, because bought credits do not expire.</li>
+        <li>Dress up token counters (salted hash of the install identifier and the number of tokens used): counters for the monthly allowance of subscribers who subscribed before version 1.5.0 expire shortly after each billing period ends; counters for bought tokens are kept for as long as those tokens can be used, because bought tokens do not expire.</li>
         <li>Analytics and crash data are retained by Google under Firebase's own retention settings.</li>
+        <li>Ad data collected by AdMob is held by Google under its own policies; we do not receive or keep it. The daily count of videos you watched stays on your device.</li>
       </ul>
 
       <h2>14. Your rights</h2>
@@ -285,7 +329,7 @@
         to Dress up, and never photos of children.
       </p>
 
-      <h2>16. Credits</h2>
+      <h2>16. Acknowledgements</h2>
       <p>
         The cat sounds used in the app come from published, openly licensed recordings of real cats.
         The CatMeows dataset — Ludovico, Ntalampiras, Presti, Cannas, Battini and Mattiello
