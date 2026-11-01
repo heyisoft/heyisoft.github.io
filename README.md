@@ -25,6 +25,15 @@ Multi-app aware: each app lives in its own subdirectory.
 | `/kalender/tr/terms/` | `kalender/tr/terms/index.html` | Kalender Kullanım Koşulları (TR) |
 | `/kalender/tr/contact/` | `kalender/tr/contact/index.html` | Kalender İletişim ve destek (TR) |
 | `/kalender/assets/style.css` | — | Kalender-only stylesheet |
+| `/inkdot/` | `inkdot/index.html` | Inkdot landing + legal index (EN) |
+| `/inkdot/privacy/` | `inkdot/privacy/index.html` | Inkdot Privacy Policy (EN) |
+| `/inkdot/terms/` | `inkdot/terms/index.html` | Inkdot Terms of Use (EN) |
+| `/inkdot/contact/` | `inkdot/contact/index.html` | Inkdot Contact & Support (EN) |
+| `/inkdot/tr/` | `inkdot/tr/index.html` | Inkdot tanıtım + hukuki dizin (TR) |
+| `/inkdot/tr/privacy/` | `inkdot/tr/privacy/index.html` | Inkdot Gizlilik Politikası ve KVKK Aydınlatma Metni (TR) |
+| `/inkdot/tr/terms/` | `inkdot/tr/terms/index.html` | Inkdot Kullanım Koşulları (TR) |
+| `/inkdot/tr/contact/` | `inkdot/tr/contact/index.html` | Inkdot İletişim ve destek (TR) |
+| `/inkdot/assets/style.css` | — | Inkdot-only stylesheet (not yet listed on the studio landing) |
 
 ## Per-app isolation (important)
 
