@@ -31,7 +31,7 @@
   </header>
   <main>
     <div class="container doc">
-      <p class="updated">Last updated: 1 November 2026</p>
+      <p class="updated">Last updated: 10 November 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="callout">
@@ -42,7 +42,7 @@
         exception you control: when you use <strong>Dress up</strong>, the one photo you pick is
         sent to our server and to <strong>Google's Gemini API</strong> to create the costume picture.
         We do not keep that photo. Apart from that, only anonymous usage and crash data and purchase
-        records leave your phone. When you run out of free uses you may choose to watch an optional
+        records leave your phone. Optional reminder notifications are created and shown by your phone itself; nothing about them is sent to us. When you run out of free uses you may choose to watch an optional
         <strong>rewarded video ad</strong>, served by <strong>Google AdMob</strong>; AdMob can use your
         device's <strong>advertising identifier</strong>, and on iPhone it only does so if you allow it
         in Apple's tracking prompt. Subscribers see no ads.
@@ -95,7 +95,7 @@
           <td>Remembering your preferences</td>
         </tr>
         <tr>
-          <td>Anonymous usage events (which screens open, whether an analysis succeeded or was rejected and why, which phrase category or costume was used) plus basic technical data (device model, OS version, app version, language, coarse region)</td>
+          <td>Anonymous usage events (which screens open, whether an analysis succeeded or was rejected and why, which phrase category or costume was used, whether you allowed reminder notifications, whether you opened one, and that your daily free uses ran out) plus basic technical data (device model, OS version, app version, language, coarse region)</td>
           <td>Processed by <strong>Google Firebase Analytics</strong></td>
           <td>Seeing, in aggregate, where the app trips people up so we can fix it</td>
         </tr>
@@ -215,8 +215,8 @@
       <h2>8. Advertising</h2>
       <p>
         Dog Translator has one kind of ad: an optional <strong>rewarded video</strong>. When you run out of
-        free listens or chat phrases, you can choose to watch a video to the end to get 5 more of
-        the one you ran out of, up to 3 videos a day. There are no banners, no interstitials and no
+        free listens or chat phrases, you can choose to watch a video to the end to get 3 more of
+        the one you ran out of for that day, up to 3 videos a day. There are no banners, no interstitials and no
         ads at app launch. <strong>Subscribers see no ads</strong>, and no ad is loaded for them.
       </p>
       <p>
@@ -242,10 +242,10 @@
 
       <h2>9. Purchases, subscriptions and tokens</h2>
       <p>
-        There is one optional subscription, <strong>Dog Translator Pro</strong>, with a monthly plan
-        (US$4.99 per month) and a yearly plan, each shown in your own currency in the app. It removes the free
+        There is one optional subscription, <strong>Dog Translator Pro</strong>, with a weekly plan
+        (US$1.99 per week) and a monthly plan (US$5.99 per month), listed in US dollars, varying by region and shown in your own currency in the app. A yearly plan is no longer offered to new subscribers; existing yearly subscriptions continue. It removes the daily free
         limits on listening and chat phrases, opens the health radar and the vet summary, and
-        removes ads. If you are eligible, the yearly plan starts with a <strong>3-day free trial</strong> (the monthly plan has none); the
+        removes ads. If you are eligible, the monthly plan starts with a <strong>3-day free trial</strong> (the weekly plan has none); the
         store decides eligibility. If you do not cancel at least 24 hours before the trial ends, the
         subscription starts and you are charged. You can also buy a one-time pack of
         <strong>20 Dress up tokens</strong> (US$6.99, shown in your own currency in the app); Dress up
@@ -262,7 +262,7 @@
         tokens you have bought. The identifier is not tied to your name or an e-mail address, because
         the app has neither. See
         <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat's privacy policy</a>.
-        The counters for your free listens and free phrases, and for the rewarded videos you watched
+        The counters for your free listens and free phrases (which reset every day at midnight in your device's time), and for the rewarded videos you watched
         today, are kept on your device only.
       </p>
       <p>
@@ -270,13 +270,20 @@
         notifications. If you agree, it schedules one notification on your device about 24 hours
         before the trial ends. This is a local notification: it is created and shown by your phone,
         and no data about it is sent to us or anyone else. If you decline, the trial and the app work
-        the same; you just get no reminder.
+        the same; you just get no reminder. This reminder does not depend on the Notifications setting below.
+      </p>
+      <p>
+        <strong>Optional reminders.</strong> Dog Translator can also send local notifications: a reminder at about
+        10:00 your time the day after you used your free uses (for people without a subscription), and a reminder
+        about 3 and 7 days after you last opened the app. The app asks first, in its own screen, after your free uses run out or after your first successful chat; if you answer
+        <em>Not now</em> it may ask once more, about 3 days later, and never again. You can switch them off at any time in Settings.
+        They are scheduled and shown by your phone. The text can include your dog's name, which is read on your device only and is never sent to us or anyone else. Tapping a reminder just opens the app.
       </p>
 
       <h2>10. Permissions the app asks for</h2>
       <ul>
         <li><strong>Microphone</strong> — required for recording. It is the whole point of the app: recording your dog’s bark. Audio is analysed locally and never uploaded.</li>
-        <li><strong>Notifications</strong> — optional. Asked for only when a free trial starts, to remind you about 24 hours before it ends.</li>
+        <li><strong>Notifications</strong> — optional. Asked for when a free trial starts (to remind you about 24 hours before it ends) or when you agree to reminders about your free daily uses and about coming back to the app. They are created on your phone; you can switch them off in Settings or in your system settings.</li>
         <li><strong>Camera</strong> — optional. To take a profile photo of your dog, or a photo to dress up.</li>
         <li><strong>Photos</strong> — optional. To pick a photo of your dog for the profile or for Dress up (through the system photo picker, which shares only the photo you select), and, if you tap <em>Save</em>, to add a costume picture to your library.</li>
       </ul>
@@ -308,7 +315,7 @@
         <li>Dress up photos and results: not stored on our server. Google may keep them for up to 55 days for abuse monitoring, as described in section 6. Reports are deleted after at most 30 days.</li>
         <li>Dress up token counters (salted hash of the install identifier and the number of tokens used): counters for the monthly allowance of subscribers who subscribed before version 1.4.0 expire shortly after each billing period ends; counters for bought tokens are kept for as long as those tokens can be used, because bought tokens do not expire.</li>
         <li>Analytics and crash data are retained by Google under Firebase's own retention settings.</li>
-        <li>Ad data collected by AdMob is held by Google under its own policies; we do not receive or keep it. The daily count of videos you watched stays on your device.</li>
+        <li>Ad data collected by AdMob is held by Google under its own policies; we do not receive or keep it. The daily count of videos you watched, your reminder choice and the planned reminder times stay on your device.</li>
       </ul>
 
       <h2>14. Your rights</h2>
