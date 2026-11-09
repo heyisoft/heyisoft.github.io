@@ -87,9 +87,14 @@ code{background:var(--paper-2); padding:.1rem .38rem; font-size:.9em}
 .hero p.lede{color:var(--ink-soft); font-size:1.08rem; max-width:54ch; margin:0}
 /* Play rozeti: Google'ın resmî rozeti, değiştirilmeden; yanında ücretsiz/Pro ayrımı. */
 .get{display:flex; flex-wrap:wrap; align-items:center; gap:.4rem 1rem; margin-top:1.4rem}
-.get .play{display:inline-block; margin-left:-12px; line-height:0}
+/* Play PNG'sinin içinde ~12px saydam pay var; App Store SVG'sinde yok. Görünür
+   yükseklikler 50px'te eşit, pay farkı negatif boşlukla kapanır. */
+.get .badges{display:flex; flex-wrap:wrap; align-items:center; gap:0 4px}
+.get .store{display:inline-block; line-height:0}
+.get .store:focus-visible{outline:3px solid var(--mark); outline-offset:2px}
+.get .apple img{display:block; height:50px; width:auto}
+.get .play{margin-right:-12px}
 .get .play img{display:block; width:194px; height:auto}
-.get .play:focus-visible{outline:3px solid var(--mark); outline-offset:2px}
 .get p{margin:0; flex:1 1 260px; max-width:46ch; font-size:.95rem; color:var(--ink-soft)}
 .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:1px; background:var(--hair); border-block:1px solid var(--hair); margin:2.4rem 0 1rem}
