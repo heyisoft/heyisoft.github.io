@@ -39,8 +39,8 @@
         <strong>The short version.</strong> TruePanel has no account, no advertising and no
         tracking across other apps, and we sell no data. Your projects, parts and cut plans
         stay on your phone. Three things leave the device: a TruePanel Pro purchase, handled
-        by Apple, Google and RevenueCat; anonymous usage statistics, which you can turn off;
-        and crash reports &mdash; never your projects or measurements.
+        by Apple, Google and RevenueCat; and anonymous usage statistics and crash reports,
+        which you can turn off with one switch &mdash; never your projects or measurements.
       </div>
 
       <h2>1. Who we are</h2>
@@ -103,7 +103,7 @@
       <p>
         The app uses <strong>Google Analytics for Firebase</strong> to count how the app is
         used, so we know what is worth improving. You can turn this off at any time in
-        <em>Settings &rarr; Share anonymous usage</em>. See
+        <em>Settings &rarr; Share anonymous usage and crash reports</em>. See
         <a href="https://firebase.google.com/support/privacy">Firebase's privacy
         documentation</a>.
       </p>
@@ -111,8 +111,17 @@
       <ul>
         <li>that the app was opened, onboarding was completed, a project was created, a plan
             was solved or exported, or cut mode was started;</li>
-        <li>which template was opened, and rough counts in ranges (for example how many parts
-            or sheets a plan has) &mdash; never the dimensions;</li>
+        <li>which template was opened, customized or turned into a project, and rough counts
+            in ranges (for example how many parts or sheets a plan has, or how many offcuts
+            it reused) &mdash; never the dimensions;</li>
+        <li>which features were used, by kind only: the kind of export (PDF, CSV, Excel,
+            DXF, image, labels), the label printer's command language and connection type
+            (Bluetooth or network), voice cut mode started or ended, cut mode finished, a
+            part operation added (miter, dado or hole), a sheet defect added, a customer or
+            quote created, a backup shared or restored and whether it worked, a parts import
+            and whether it worked, a sheet or lumber project chosen, the plan goal, an offcut
+            kept, a material switched, a kerf changed, and that the app asked for a store
+            rating;</li>
         <li>unit setting;</li>
         <li>that the TruePanel Pro screen was shown, why, which plan was chosen, and whether a
             purchase or restore started, completed, was cancelled or failed;</li>
@@ -129,8 +138,11 @@
       <p>
         If the app crashes, <strong>Firebase Crashlytics</strong> sends a crash report: the
         technical stack trace, device model, operating system and app version, and the same
-        kind of app instance identifier. It contains no project data. We use it only to fix
-        the bug.
+        kind of app instance identifier. It contains no project data, and the app adds no
+        custom fields or user identifier to it. We use it only to fix the bug. The same
+        switch, <em>Settings &rarr; Share anonymous usage and crash reports</em>, turns crash
+        reports off; when you turn it off, reports not yet sent are deleted from the
+        device.
       </p>
 
       <h2>8. What we never do</h2>
