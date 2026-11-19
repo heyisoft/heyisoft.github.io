@@ -31,18 +31,20 @@
   </header>
   <main>
     <div class="container doc">
-      <p class="updated">Last updated: 10 November 2026</p>
+      <p class="updated">Last updated: 19 November 2026</p>
       <h1>Privacy Policy</h1>
 
       <div class="callout">
         <span class="paw-inline">🐾</span> <strong>The short version.</strong> Dog Translator has
-        <strong>no accounts</strong>. Your dog’s recordings, diary and notes stay
+        <strong>no accounts</strong>. Your dog’s recordings, chat, care records (meals, walks, vaccines,
+        medication, weight, vet visits, expenses, files) and notes stay
         <strong>on your phone</strong> — the sound analysis runs entirely on the device and
-        <strong>no audio is ever uploaded</strong>. Photos stay on your phone too, with one
-        exception you control: when you use <strong>Dress up</strong>, the one photo you pick is
-        sent to our server and to <strong>Google's Gemini API</strong> to create the costume picture.
-        We do not keep that photo. Apart from that, only anonymous usage and crash data and purchase
-        records leave your phone. Optional reminder notifications are created and shown by your phone itself; nothing about them is sent to us. When you run out of free uses you may choose to watch an optional
+        <strong>no audio is ever uploaded</strong>. Two features send something off your phone, and only
+        when you use them: <strong>Ask AI</strong> sends your question and a short profile of your dog, and
+        <strong>Dress up</strong> sends the one photo you pick. Both go to our server and to
+        <strong>Google's Gemini API</strong>, which writes the answer or creates the costume picture.
+        We do not keep your questions or photos. Apart from that, only anonymous usage and crash data and purchase
+        records leave your phone. Reminders (care, vaccines, medication and the others below) are created and shown by your phone itself; nothing about them is sent to us. PDFs (vet summary, lost-pet poster) are made on your phone and leave it only if you share them. When you run out of free uses you may choose to watch an optional
         <strong>rewarded video ad</strong>, served by <strong>Google AdMob</strong>; AdMob can use your
         device's <strong>advertising identifier</strong>, and on iPhone it only does so if you allow it
         in Apple's tracking prompt. Subscribers see no ads.
@@ -57,7 +59,7 @@
       <h2>2. What this policy covers</h2>
       <p>
         This policy covers the Dog Translator mobile application for iOS and Android, the server the app
-        uses for the Dress up feature, and this website. It explains what the app handles, where it
+        uses for the Ask AI and Dress up features, and this website. It explains what the app handles, where it
         is processed, and the choices you have.
       </p>
 
@@ -75,19 +77,34 @@
           <td>Personalising the app and showing your dog’s profile</td>
         </tr>
         <tr>
+          <td>Your <strong>Ask AI</strong> question, sent together with a short profile of your dog: name, breed, age, weight, sex, and a count of its recent vocalisations by type (for example "bark x4") from the last 7 days. The optional <strong>weekly insight</strong> sends the same kind of profile plus counts from your care records for the last 7 days (number of meals, walks and walk minutes, potty breaks, medications, training sessions and notes, and the latest weight) — never the text of your notes, medication names or vet details</td>
+          <td>Sent over an encrypted connection to <strong>our server</strong> (ai.cockit.io), which passes it to the <strong>Google Gemini API</strong>. We do not store the question or the answer. The answer is stored on your device, in the chat</td>
+          <td>Writing the answer you asked for (section 5a)</td>
+        </tr>
+        <tr>
           <td>The photo you choose for <strong>Dress up</strong> (taken with the camera, picked from your library, or your dog’s profile photo) and the costume picture created from it</td>
           <td>Sent over an encrypted connection to <strong>our server</strong> (ai.cockit.io), which passes it to the <strong>Google Gemini API</strong>. We do not store it. The finished picture is stored on your device</td>
           <td>Creating the costume picture you asked for</td>
         </tr>
         <tr>
-          <td>The anonymous identifier generated for your install (RevenueCat app user ID), a Firebase App Check token and your IP address, sent with each Dress up request</td>
+          <td>The anonymous identifier generated for your install (RevenueCat app user ID), a Firebase App Check token and your IP address, sent with each Ask AI and Dress up request</td>
           <td>Processed by <strong>our server</strong>; the identifier is checked with <strong>RevenueCat</strong>, the token with <strong>Google Firebase App Check</strong></td>
-          <td>Checking your subscription and tokens, counting the tokens you use, and blocking abuse and requests that do not come from the genuine app</td>
+          <td>Checking your subscription and tokens, counting the tokens and AI questions you use, and blocking abuse and requests that do not come from the genuine app</td>
         </tr>
         <tr>
-          <td>Diary entries and chat history</td>
+          <td>Diary entries and chat history (including Ask AI answers)</td>
           <td>On your device only</td>
           <td>Building a picture of your dog’s voice over time</td>
+        </tr>
+        <tr>
+          <td><strong>Care records</strong>: daily routines, meals, walks (duration and distance you enter; no GPS), potty breaks, medication (name, dose, doses left), weight, grooming, training, notes, vaccines, vet visits, expenses, vet contacts you add (name, clinic, phone), reminders, and photos or documents you attach</td>
+          <td><strong>On your device only.</strong> Never sent to us. Only the counts described in the Ask AI row above leave the device, and only when you ask for a weekly insight</td>
+          <td>Keeping your dog’s care log, reminders, streaks and charts</td>
+        </tr>
+        <tr>
+          <td>PDFs you create: the vet summary (profile, vaccines, medication, weight, vet visits, notes, your vet contact) and the lost-pet poster (photo, name, breed, age, weight, the phone number and place you type)</td>
+          <td>Created on your device. They leave it only when you share them through the system share sheet, to the app or person you choose. The phone number you enter for the poster is remembered on your device for next time</td>
+          <td>Giving your vet a summary, or helping people find your lost dog</td>
         </tr>
         <tr>
           <td>App settings (language, theme, colour)</td>
@@ -95,7 +112,7 @@
           <td>Remembering your preferences</td>
         </tr>
         <tr>
-          <td>Anonymous usage events (which screens open, whether an analysis succeeded or was rejected and why, which phrase category or costume was used, whether you allowed reminder notifications, whether you opened one, and that your daily free uses ran out) plus basic technical data (device model, OS version, app version, language, coarse region)</td>
+          <td>Anonymous usage events (which screens open, whether an analysis succeeded or was rejected and why, which phrase category or costume was used, that an AI question was sent, answered or failed, which kind of care record was added — for example "walk" — or that a routine was done, whether you allowed reminder notifications, whether you opened one, and that your daily free uses ran out; never the content of a question, answer or record) plus basic technical data (device model, OS version, app version, language, coarse region)</td>
           <td>Processed by <strong>Google Firebase Analytics</strong></td>
           <td>Seeing, in aggregate, where the app trips people up so we can fix it</td>
         </tr>
@@ -124,7 +141,7 @@
       <h2>4. What we do <em>not</em> collect</h2>
       <ul>
         <li><strong>No audio ever leaves your phone.</strong> The sound model runs on the device; there is no server to send it to.</li>
-        <li>No notes, no dog names, no diary content. No photos, except the single photo you send each time you choose to use Dress up.</li>
+        <li>No notes, no diary content, no care records. Your dog's name and short profile are sent only with an Ask AI question you send. No photos, except the single photo you send each time you choose to use Dress up.</li>
         <li>No account, e-mail address, name or phone number — the app has no sign-up.</li>
         <li>No contacts, files or precise location. Before a Dress up photo is sent to Google, our server re-encodes it, which removes embedded metadata such as GPS location and camera details.</li>
         <li>We do not read your advertising identifier ourselves and we do not build advertising profiles. Advertising data is collected only by Google AdMob when an ad is loaded or shown, as described in section 8, and never for subscribers.</li>
@@ -139,10 +156,38 @@
         streamed, queued or uploaded. If you delete a recording, it is gone.
       </p>
       <p>
-        Dog Translator is <strong>not a veterinary device and does not diagnose</strong>. Its "health radar"
-        only points out when your dog’s own pattern shifts from its usual. If something feels off
-        with your dog, talk to your vet.
+        Dog Translator is <strong>not a veterinary device and does not diagnose</strong>. Its bark health report
+        only points out when your dog’s own pattern shifts from its usual; Ask AI answers are general
+        information, not veterinary advice; the vaccine schedule is a general suggestion to check with
+        your vet. If something feels off with your dog, talk to your vet.
       </p>
+
+      <h2>5a. Ask AI: questions about your dog's behaviour</h2>
+      <p>
+        Ask AI lets you ask a question about your dog in the chat. Nothing is sent until you type a
+        question and tap send. Before your first question, the app tells you what is sent and where, and
+        asks you to agree.
+      </p>
+      <ul>
+        <li><strong>What is sent.</strong> Your question, your app language, the short dog profile and
+          vocalisation counts listed in section 3, the anonymous install identifier and an App Check token.
+          For the weekly insight, the app writes the request itself from the counts listed in section 3.
+          No recordings, photos, note texts, medication names or vet contacts are sent.</li>
+        <li><strong>Our server (ai.cockit.io), operated by heyisoft.</strong> It checks that the request comes
+          from the genuine app (Firebase App Check), checks your subscription with RevenueCat, counts your
+          questions against your allowance, and forwards the text to Google. The question and the answer are
+          handled in memory only: they are <strong>not written to disk, not kept, and not logged</strong>.
+          Our logs record only technical facts such as a shortened hash of the install identifier, the
+          result status, the number of AI tokens used and the processing time. Your install identifier is kept only as a salted one-way hash, next to
+          the number of questions you have used (free users: the one free question; subscribers: the
+          monthly allowance).</li>
+        <li><strong>Google Gemini API.</strong> The text is processed by Google LLC as our data processor
+          under the paid-service terms described in section 6 for Dress up: Google does not use it to
+          improve its products, and may keep it for up to 55 days only for abuse monitoring.</li>
+        <li><strong>Your choice.</strong> Ask AI is optional. You can withdraw your agreement at any time
+          with <em>Sending questions to AI</em> in <em>Settings</em>; after that nothing is sent until you
+          agree again. Answers already in your chat stay on your device until you delete them.</li>
+      </ul>
 
       <h2>6. Dress up: AI costume photos</h2>
       <p>
@@ -192,7 +237,7 @@
           a report for up to 30 days to review it, then delete it. We use reports to improve our filters.</li>
       </ul>
       <p>
-        Every service provider named in this policy — Google (Firebase Analytics, Crashlytics and App Check, the Gemini API and AdMob) and
+        Every service provider named in this policy — Google (Firebase Analytics, Crashlytics and App Check, the Gemini API for Ask AI and Dress up, and AdMob) and
         RevenueCat — receives only the data needed for the task described here, processes it under
         its own published terms, and is required by those terms to protect it at least as well as
         this policy describes.
@@ -273,6 +318,13 @@
         the same; you just get no reminder. This reminder does not depend on the Notifications setting below.
       </p>
       <p>
+        <strong>Care reminders.</strong> If you turn them on, the app schedules local notifications for the
+        care reminders you set (for example a medication at 20:00), for upcoming vaccines (the day before,
+        at 10:00) and when a medication is running low. Their text can include your dog's name and the
+        reminder or medication name you typed; it is read on your device only and never sent to us or
+        anyone else.
+      </p>
+      <p>
         <strong>Optional reminders.</strong> Dog Translator can also send local notifications: a reminder at about
         10:00 your time the day after you used your free uses (for people without a subscription), and a reminder
         about 3 and 7 days after you last opened the app. The app asks first, in its own screen, after your free uses run out or after your first successful chat; if you answer
@@ -285,7 +337,7 @@
         <li><strong>Microphone</strong> — required for recording. It is the whole point of the app: recording your dog’s bark. Audio is analysed locally and never uploaded.</li>
         <li><strong>Notifications</strong> — optional. Asked for when a free trial starts (to remind you about 24 hours before it ends) or when you agree to reminders about your free daily uses and about coming back to the app. They are created on your phone; you can switch them off in Settings or in your system settings.</li>
         <li><strong>Camera</strong> — optional. To take a profile photo of your dog, or a photo to dress up.</li>
-        <li><strong>Photos</strong> — optional. To pick a photo of your dog for the profile or for Dress up (through the system photo picker, which shares only the photo you select), and, if you tap <em>Save</em>, to add a costume picture to your library.</li>
+        <li><strong>Photos and files</strong> — optional. To pick a photo of your dog for the profile, for Dress up or for a care record, or a document (for example a lab result) to keep in Care (through the system photo picker, which shares only the photo you select), and, if you tap <em>Save</em>, to add a costume picture to your library.</li>
       </ul>
       <p>
         You can refuse or withdraw any of these in your system settings. Without the microphone the
@@ -296,7 +348,7 @@
       <p>
         Because your data lives on the device, it may be included in the backup <em>you</em> control
         (Google One / iCloud), encrypted by Google or Apple. We never receive that backup. On Android
-        we go a step further and <strong>exclude sound recordings and photos from cloud backup</strong>;
+        we go a step further and <strong>exclude sound recordings, photos and the files you attach in Care from cloud backup</strong> (your care records themselves are included, so they survive a phone change);
         they are still carried over on a direct phone-to-phone transfer, which does not pass through
         anyone's cloud.
       </p>
@@ -304,6 +356,7 @@
       <h2>12. Legal bases (GDPR / KVKK)</h2>
       <ul>
         <li><strong>Performance of contract</strong> — running the app you installed, processing recordings on your device to give you the result you asked for, and providing the subscription and tokens you bought.</li>
+        <li><strong>Consent</strong> — sending your Ask AI question and your dog's short profile to our server and to Google's Gemini API. You give it in the app before your first question, and you can withdraw it at any time with <em>Sending questions to AI</em> in <em>Settings</em>.</li>
         <li><strong>Consent</strong> — sending a photo you chose to our server and to Google's Gemini API for Dress up. You give it in the app before your first photo is sent, and you can withdraw it at any time by turning off <em>Dress up photo sharing</em> in <em>Settings → Your data</em>, or simply by not using Dress up; withdrawing does not affect pictures already created.</li>
         <li><strong>Consent (advertising)</strong> — personalised ads and the use of your advertising identifier for them, through Google's consent form (Europe, UK, Switzerland) or Apple's tracking prompt (iOS). Watching a rewarded video is optional, and you can change the choice as described in section 8. Without consent you still get the reward, with non-personalised ads.</li>
         <li><strong>Legitimate interests</strong> — anonymous analytics and crash reporting to keep the app working and improve it, and preventing abuse of the Dress up server.</li>
@@ -312,6 +365,7 @@
       <h2>13. Retention</h2>
       <ul>
         <li>Everything on your device, including Dress up pictures, stays until you delete it (per item, or all at once with <em>Settings → Your data → Erase all my data</em>) or until you uninstall the app.</li>
+        <li>Ask AI questions and answers: not stored on our server; the answer is kept in your chat on your device. Google may keep the text for up to 55 days for abuse monitoring. Question counters (salted hash of the install identifier and the number of questions used) are kept for as long as the allowance applies: the free question for as long as the app is installed, the monthly count until shortly after the month ends.</li>
         <li>Dress up photos and results: not stored on our server. Google may keep them for up to 55 days for abuse monitoring, as described in section 6. Reports are deleted after at most 30 days.</li>
         <li>Dress up token counters (salted hash of the install identifier and the number of tokens used): counters for the monthly allowance of subscribers who subscribed before version 1.4.0 expire shortly after each billing period ends; counters for bought tokens are kept for as long as those tokens can be used, because bought tokens do not expire.</li>
         <li>Analytics and crash data are retained by Google under Firebase's own retention settings.</li>
@@ -324,7 +378,7 @@
         access, correct, delete or object to the processing of your personal data. Because
         essentially everything lives on your device, the most direct tool is the in-app
         <em>Erase all my data</em> action, which removes profiles, diary, chat,
-        recordings and photos for good. For anything else, write to
+        care records, reminders, recordings, photos and attached files for good. For anything else, write to
         <a href="mailto:heyisoft@gmail.com">heyisoft@gmail.com</a> and we will respond within 30 days.
       </p>
 
